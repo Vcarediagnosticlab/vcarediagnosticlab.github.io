@@ -122,6 +122,160 @@ footer ul{list-style:none;display:grid;gap:8px}
  .mobile-book{display:flex;position:fixed;bottom:15px;left:15px;right:15px;z-index:60}
  .mobile-book .btn{width:100%;background:var(--navy);color:#fff;box-shadow:0 12px 30px rgba(8,43,76,.25)}
 }
+/* ===== ADVANCED TEST CATALOGUE ===== */
+.test-tools{
+  display:grid;
+  grid-template-columns:1.5fr 1fr;
+  gap:14px;
+  margin-bottom:25px;
+}
+
+.test-search{
+  position:relative;
+}
+
+.test-search input{
+  margin:0;
+  padding:17px 18px 17px 48px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:16px;
+  box-shadow:0 8px 25px rgba(8,43,76,.05);
+}
+
+.test-search:before{
+  content:"🔎";
+  position:absolute;
+  left:17px;
+  top:14px;
+  font-size:18px;
+  z-index:2;
+}
+
+.test-filter{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.filter-btn{
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--navy);
+  padding:10px 14px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:800;
+  font-size:12px;
+  transition:.2s;
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+  background:var(--navy);
+  color:#fff;
+  border-color:var(--navy);
+}
+
+.test-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+
+.test{
+  padding:18px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:#fbfdfe;
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:center;
+  font-weight:800;
+  color:var(--navy);
+  transition:.2s;
+}
+
+.test:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 28px rgba(8,43,76,.08);
+  border-color:#cfe4eb;
+}
+
+.test-info{
+  min-width:0;
+}
+
+.test-name{
+  display:block;
+  font-size:14px;
+  line-height:1.35;
+}
+
+.test-category{
+  display:inline-block;
+  margin-top:6px;
+  font-size:10px;
+  color:var(--blue);
+  background:#eaf8fb;
+  padding:4px 8px;
+  border-radius:999px;
+  font-weight:900;
+}
+
+.test-action{
+  flex-shrink:0;
+  width:34px;
+  height:34px;
+  border-radius:11px;
+  display:grid;
+  place-items:center;
+  background:#e9fbf5;
+  color:#10946f;
+  font-size:16px;
+  cursor:pointer;
+  border:0;
+}
+
+.test-action:hover{
+  background:#d7f7ed;
+}
+
+.no-results{
+  display:none;
+  text-align:center;
+  padding:35px;
+  color:var(--muted);
+  background:#fff;
+  border:1px dashed #ccdbe3;
+  border-radius:18px;
+}
+
+.catalog-note{
+  margin-top:18px;
+  font-size:12px;
+  color:var(--muted);
+}
+
+@media(max-width:900px){
+ .test-tools{
+   grid-template-columns:1fr;
+ }
+ .test-grid{
+   grid-template-columns:1fr 1fr;
+ }
+}
+
+@media(max-width:560px){
+ .test-grid{
+   grid-template-columns:1fr;
+ }
+ .test{
+   padding:17px;
+ }
+}
 </style>
 </head>
 <body>
@@ -184,13 +338,526 @@ footer ul{list-style:none;display:grid;gap:8px}
 
 <section class="tests" id="tests">
  <div class="container">
-  <div class="section-head"><div><div class="eyebrow">Popular investigations</div><h2>Tests people commonly book.</h2></div><p>Ask us about the test you need and we'll guide you on availability and preparation.</p></div>
-  <div class="test-grid">
-   <div class="test">CBC <span>+</span></div><div class="test">Thyroid Profile <span>+</span></div>
-   <div class="test">Liver Function <span>+</span></div><div class="test">Kidney Function <span>+</span></div>
-   <div class="test">Diabetes Profile <span>+</span></div><div class="test">Vitamin Profile <span>+</span></div>
-   <div class="test">Lipid Profile <span>+</span></div><div class="test">Fever Profile <span>+</span></div>
+
+  <div class="section-head">
+   <div>
+    <div class="eyebrow">Diagnostic Test Catalogue</div>
+    <h2>Find the test you need.</h2>
+   </div>
+   <p>
+    Search our diagnostic test catalogue and contact Vcare for current
+    availability, preparation requirements and pricing.
+   </p>
   </div>
+
+  <div class="test-tools">
+
+   <div class="test-search">
+    <input
+      type="text"
+      id="testSearch"
+      placeholder="Search test... e.g. CBC, Vitamin D, Thyroid"
+      onkeyup="filterTests()"
+    >
+   </div>
+
+   <div class="test-filter">
+    <button class="filter-btn active" onclick="setCategory('all',this)">All</button>
+    <button class="filter-btn" onclick="setCategory('Haematology',this)">Haematology</button>
+    <button class="filter-btn" onclick="setCategory('Biochemistry',this)">Biochemistry</button>
+    <button class="filter-btn" onclick="setCategory('Hormones',this)">Hormones</button>
+    <button class="filter-btn" onclick="setCategory('Immunology',this)">Immunology</button>
+    <button class="filter-btn" onclick="setCategory('Vitamins',this)">Vitamins</button>
+    <button class="filter-btn" onclick="setCategory('Urine',this)">Urine</button>
+    <button class="filter-btn" onclick="setCategory('Advanced',this)">Advanced</button>
+   </div>
+
+  </div>
+
+  <div class="test-grid" id="testGrid">
+
+   <!-- HAEMATOLOGY -->
+   <div class="test" data-category="Haematology">
+    <div class="test-info">
+     <span class="test-name">Complete Blood Count (CBC)</span>
+     <span class="test-category">Haematology</span>
+    </div>
+    <button class="test-action" onclick="askTest('Complete Blood Count (CBC)')">+</button>
+   </div>
+
+   <div class="test" data-category="Haematology">
+    <div class="test-info">
+     <span class="test-name">Haemoglobin (Hb)</span>
+     <span class="test-category">Haematology</span>
+    </div>
+    <button class="test-action" onclick="askTest('Haemoglobin (Hb)')">+</button>
+   </div>
+
+   <div class="test" data-category="Haematology">
+    <div class="test-info">
+     <span class="test-name">ESR</span>
+     <span class="test-category">Haematology</span>
+    </div>
+    <button class="test-action" onclick="askTest('ESR')">+</button>
+   </div>
+
+   <div class="test" data-category="Haematology">
+    <div class="test-info">
+     <span class="test-name">Platelet Count</span>
+     <span class="test-category">Haematology</span>
+    </div>
+    <button class="test-action" onclick="askTest('Platelet Count')">+</button>
+   </div>
+
+   <div class="test" data-category="Haematology">
+    <div class="test-info">
+     <span class="test-name">Peripheral Blood Smear</span>
+     <span class="test-category">Haematology</span>
+    </div>
+    <button class="test-action" onclick="askTest('Peripheral Blood Smear')">+</button>
+   </div>
+
+   <div class="test" data-category="Haematology">
+    <div class="test-info">
+     <span class="test-name">Reticulocyte Count</span>
+     <span class="test-category">Haematology</span>
+    </div>
+    <button class="test-action" onclick="askTest('Reticulocyte Count')">+</button>
+   </div>
+
+   <div class="test" data-category="Haematology">
+    <div class="test-info">
+     <span class="test-name">PT / INR</span>
+     <span class="test-category">Haematology</span>
+    </div>
+    <button class="test-action" onclick="askTest('PT / INR')">+</button>
+   </div>
+
+   <div class="test" data-category="Haematology">
+    <div class="test-info">
+     <span class="test-name">APTT</span>
+     <span class="test-category">Haematology</span>
+    </div>
+    <button class="test-action" onclick="askTest('APTT')">+</button>
+   </div>
+
+   <!-- BIOCHEMISTRY -->
+   <div class="test" data-category="Biochemistry">
+    <div class="test-info">
+     <span class="test-name">Fasting Blood Sugar (FBS)</span>
+     <span class="test-category">Biochemistry</span>
+    </div>
+    <button class="test-action" onclick="askTest('Fasting Blood Sugar (FBS)')">+</button>
+   </div>
+
+   <div class="test" data-category="Biochemistry">
+    <div class="test-info">
+     <span class="test-name">Post Prandial Blood Sugar (PPBS)</span>
+     <span class="test-category">Biochemistry</span>
+    </div>
+    <button class="test-action" onclick="askTest('Post Prandial Blood Sugar (PPBS)')">+</button>
+   </div>
+
+   <div class="test" data-category="Biochemistry">
+    <div class="test-info">
+     <span class="test-name">HbA1c</span>
+     <span class="test-category">Biochemistry</span>
+    </div>
+    <button class="test-action" onclick="askTest('HbA1c')">+</button>
+   </div>
+
+   <div class="test" data-category="Biochemistry">
+    <div class="test-info">
+     <span class="test-name">Liver Function Test (LFT)</span>
+     <span class="test-category">Biochemistry</span>
+    </div>
+    <button class="test-action" onclick="askTest('Liver Function Test (LFT)')">+</button>
+   </div>
+
+   <div class="test" data-category="Biochemistry">
+    <div class="test-info">
+     <span class="test-name">Kidney Function Test (KFT)</span>
+     <span class="test-category">Biochemistry</span>
+    </div>
+    <button class="test-action" onclick="askTest('Kidney Function Test (KFT)')">+</button>
+   </div>
+
+   <div class="test" data-category="Biochemistry">
+    <div class="test-info">
+     <span class="test-name">Lipid Profile</span>
+     <span class="test-category">Biochemistry</span>
+    </div>
+    <button class="test-action" onclick="askTest('Lipid Profile')">+</button>
+   </div>
+
+   <div class="test" data-category="Biochemistry">
+    <div class="test-info">
+     <span class="test-name">Uric Acid</span>
+     <span class="test-category">Biochemistry</span>
+    </div>
+    <button class="test-action" onclick="askTest('Uric Acid')">+</button>
+   </div>
+
+   <div class="test" data-category="Biochemistry">
+    <div class="test-info">
+     <span class="test-name">Calcium</span>
+     <span class="test-category">Biochemistry</span>
+    </div>
+    <button class="test-action" onclick="askTest('Calcium')">+</button>
+   </div>
+
+   <div class="test" data-category="Biochemistry">
+    <div class="test-info">
+     <span class="test-name">Phosphorus</span>
+     <span class="test-category">Biochemistry</span>
+    </div>
+    <button class="test-action" onclick="askTest('Phosphorus')">+</button>
+   </div>
+
+   <div class="test" data-category="Biochemistry">
+    <div class="test-info">
+     <span class="test-name">Iron Profile</span>
+     <span class="test-category">Biochemistry</span>
+    </div>
+    <button class="test-action" onclick="askTest('Iron Profile')">+</button>
+   </div>
+
+   <div class="test" data-category="Biochemistry">
+    <div class="test-info">
+     <span class="test-name">Electrolytes</span>
+     <span class="test-category">Biochemistry</span>
+    </div>
+    <button class="test-action" onclick="askTest('Electrolytes')">+</button>
+   </div>
+
+   <!-- THYROID / HORMONES -->
+   <div class="test" data-category="Hormones">
+    <div class="test-info">
+     <span class="test-name">Thyroid Profile</span>
+     <span class="test-category">Hormones</span>
+    </div>
+    <button class="test-action" onclick="askTest('Thyroid Profile')">+</button>
+   </div>
+
+   <div class="test" data-category="Hormones">
+    <div class="test-info">
+     <span class="test-name">TSH</span>
+     <span class="test-category">Hormones</span>
+    </div>
+    <button class="test-action" onclick="askTest('TSH')">+</button>
+   </div>
+
+   <div class="test" data-category="Hormones">
+    <div class="test-info">
+     <span class="test-name">Free T3</span>
+     <span class="test-category">Hormones</span>
+    </div>
+    <button class="test-action" onclick="askTest('Free T3')">+</button>
+   </div>
+
+   <div class="test" data-category="Hormones">
+    <div class="test-info">
+     <span class="test-name">Free T4</span>
+     <span class="test-category">Hormones</span>
+    </div>
+    <button class="test-action" onclick="askTest('Free T4')">+</button>
+   </div>
+
+   <div class="test" data-category="Hormones">
+    <div class="test-info">
+     <span class="test-name">FSH</span>
+     <span class="test-category">Hormones</span>
+    </div>
+    <button class="test-action" onclick="askTest('FSH')">+</button>
+   </div>
+
+   <div class="test" data-category="Hormones">
+    <div class="test-info">
+     <span class="test-name">LH</span>
+     <span class="test-category">Hormones</span>
+    </div>
+    <button class="test-action" onclick="askTest('LH')">+</button>
+   </div>
+
+   <div class="test" data-category="Hormones">
+    <div class="test-info">
+     <span class="test-name">Prolactin</span>
+     <span class="test-category">Hormones</span>
+    </div>
+    <button class="test-action" onclick="askTest('Prolactin')">+</button>
+   </div>
+
+   <div class="test" data-category="Hormones">
+    <div class="test-info">
+     <span class="test-name">Testosterone</span>
+     <span class="test-category">Hormones</span>
+    </div>
+    <button class="test-action" onclick="askTest('Testosterone')">+</button>
+   </div>
+
+   <div class="test" data-category="Hormones">
+    <div class="test-info">
+     <span class="test-name">Estradiol (E2)</span>
+     <span class="test-category">Hormones</span>
+    </div>
+    <button class="test-action" onclick="askTest('Estradiol (E2)')">+</button>
+   </div>
+
+   <div class="test" data-category="Hormones">
+    <div class="test-info">
+     <span class="test-name">Progesterone</span>
+     <span class="test-category">Hormones</span>
+    </div>
+    <button class="test-action" onclick="askTest('Progesterone')">+</button>
+   </div>
+
+   <div class="test" data-category="Hormones">
+    <div class="test-info">
+     <span class="test-name">Cortisol</span>
+     <span class="test-category">Hormones</span>
+    </div>
+    <button class="test-action" onclick="askTest('Cortisol')">+</button>
+   </div>
+
+   <div class="test" data-category="Hormones">
+    <div class="test-info">
+     <span class="test-name">Insulin</span>
+     <span class="test-category">Hormones</span>
+    </div>
+    <button class="test-action" onclick="askTest('Insulin')">+</button>
+   </div>
+
+   <!-- IMMUNOLOGY / SEROLOGY -->
+   <div class="test" data-category="Immunology">
+    <div class="test-info">
+     <span class="test-name">CRP</span>
+     <span class="test-category">Immunology</span>
+    </div>
+    <button class="test-action" onclick="askTest('CRP')">+</button>
+   </div>
+
+   <div class="test" data-category="Immunology">
+    <div class="test-info">
+     <span class="test-name">RA Factor</span>
+     <span class="test-category">Immunology</span>
+    </div>
+    <button class="test-action" onclick="askTest('RA Factor')">+</button>
+   </div>
+
+   <div class="test" data-category="Immunology">
+    <div class="test-info">
+     <span class="test-name">ASO Titre</span>
+     <span class="test-category">Immunology</span>
+    </div>
+    <button class="test-action" onclick="askTest('ASO Titre')">+</button>
+   </div>
+
+   <div class="test" data-category="Immunology">
+    <div class="test-info">
+     <span class="test-name">Widal Test</span>
+     <span class="test-category">Immunology</span>
+    </div>
+    <button class="test-action" onclick="askTest('Widal Test')">+</button>
+   </div>
+
+   <div class="test" data-category="Immunology">
+    <div class="test-info">
+     <span class="test-name">Dengue Profile</span>
+     <span class="test-category">Immunology</span>
+    </div>
+    <button class="test-action" onclick="askTest('Dengue Profile')">+</button>
+   </div>
+
+   <div class="test" data-category="Immunology">
+    <div class="test-info">
+     <span class="test-name">Malaria Test</span>
+     <span class="test-category">Immunology</span>
+    </div>
+    <button class="test-action" onclick="askTest('Malaria Test')">+</button>
+   </div>
+
+   <div class="test" data-category="Immunology">
+    <div class="test-info">
+     <span class="test-name">HBsAg</span>
+     <span class="test-category">Immunology</span>
+    </div>
+    <button class="test-action" onclick="askTest('HBsAg')">+</button>
+   </div>
+
+   <div class="test" data-category="Immunology">
+    <div class="test-info">
+     <span class="test-name">HIV Screening</span>
+     <span class="test-category">Immunology</span>
+    </div>
+    <button class="test-action" onclick="askTest('HIV Screening')">+</button>
+   </div>
+
+   <div class="test" data-category="Immunology">
+    <div class="test-info">
+     <span class="test-name">HCV Screening</span>
+     <span class="test-category">Immunology</span>
+    </div>
+    <button class="test-action" onclick="askTest('HCV Screening')">+</button>
+   </div>
+
+   <!-- VITAMINS -->
+   <div class="test" data-category="Vitamins">
+    <div class="test-info">
+     <span class="test-name">Vitamin D</span>
+     <span class="test-category">Vitamins</span>
+    </div>
+    <button class="test-action" onclick="askTest('Vitamin D')">+</button>
+   </div>
+
+   <div class="test" data-category="Vitamins">
+    <div class="test-info">
+     <span class="test-name">Vitamin B12</span>
+     <span class="test-category">Vitamins</span>
+    </div>
+    <button class="test-action" onclick="askTest('Vitamin B12')">+</button>
+   </div>
+
+   <div class="test" data-category="Vitamins">
+    <div class="test-info">
+     <span class="test-name">Folate</span>
+     <span class="test-category">Vitamins</span>
+    </div>
+    <button class="test-action" onclick="askTest('Folate')">+</button>
+   </div>
+
+   <div class="test" data-category="Vitamins">
+    <div class="test-info">
+     <span class="test-name">Ferritin</span>
+     <span class="test-category">Vitamins</span>
+    </div>
+    <button class="test-action" onclick="askTest('Ferritin')">+</button>
+   </div>
+
+   <!-- URINE -->
+   <div class="test" data-category="Urine">
+    <div class="test-info">
+     <span class="test-name">Urine Routine & Microscopy</span>
+     <span class="test-category">Urine</span>
+    </div>
+    <button class="test-action" onclick="askTest('Urine Routine & Microscopy')">+</button>
+   </div>
+
+   <div class="test" data-category="Urine">
+    <div class="test-info">
+     <span class="test-name">Urine Culture</span>
+     <span class="test-category">Urine</span>
+    </div>
+    <button class="test-action" onclick="askTest('Urine Culture')">+</button>
+   </div>
+
+   <div class="test" data-category="Urine">
+    <div class="test-info">
+     <span class="test-name">Urine Protein</span>
+     <span class="test-category">Urine</span>
+    </div>
+    <button class="test-action" onclick="askTest('Urine Protein')">+</button>
+   </div>
+
+   <div class="test" data-category="Urine">
+    <div class="test-info">
+     <span class="test-name">Urine Pregnancy Test</span>
+     <span class="test-category">Urine</span>
+    </div>
+    <button class="test-action" onclick="askTest('Urine Pregnancy Test')">+</button>
+   </div>
+
+   <!-- ADVANCED -->
+   <div class="test" data-category="Advanced">
+    <div class="test-info">
+     <span class="test-name">Hb Electrophoresis</span>
+     <span class="test-category">Advanced</span>
+    </div>
+    <button class="test-action" onclick="askTest('Hb Electrophoresis')">+</button>
+   </div>
+
+   <div class="test" data-category="Advanced">
+    <div class="test-info">
+     <span class="test-name">Thalassemia Screening</span>
+     <span class="test-category">Advanced</span>
+    </div>
+    <button class="test-action" onclick="askTest('Thalassemia Screening')">+</button>
+   </div>
+
+   <div class="test" data-category="Advanced">
+    <div class="test-info">
+     <span class="test-name">ANA</span>
+     <span class="test-category">Advanced</span>
+    </div>
+    <button class="test-action" onclick="askTest('ANA')">+</button>
+   </div>
+
+   <div class="test" data-category="Advanced">
+    <div class="test-info">
+     <span class="test-name">Anti-CCP</span>
+     <span class="test-category">Advanced</span>
+    </div>
+    <button class="test-action" onclick="askTest('Anti-CCP')">+</button>
+   </div>
+
+   <div class="test" data-category="Advanced">
+    <div class="test-info">
+     <span class="test-name">D-Dimer</span>
+     <span class="test-category">Advanced</span>
+    </div>
+    <button class="test-action" onclick="askTest('D-Dimer')">+</button>
+   </div>
+
+   <div class="test" data-category="Advanced">
+    <div class="test-info">
+     <span class="test-name">PSA</span>
+     <span class="test-category">Advanced</span>
+    </div>
+    <button class="test-action" onclick="askTest('PSA')">+</button>
+   </div>
+
+   <div class="test" data-category="Advanced">
+    <div class="test-info">
+     <span class="test-name">CA-125</span>
+     <span class="test-category">Advanced</span>
+    </div>
+    <button class="test-action" onclick="askTest('CA-125')">+</button>
+   </div>
+
+   <div class="test" data-category="Advanced">
+    <div class="test-info">
+     <span class="test-name">CA 19-9</span>
+     <span class="test-category">Advanced</span>
+    </div>
+    <button class="test-action" onclick="askTest('CA 19-9')">+</button>
+   </div>
+
+   <div class="test" data-category="Advanced">
+    <div class="test-info">
+     <span class="test-name">CEA</span>
+     <span class="test-category">Advanced</span>
+    </div>
+    <button class="test-action" onclick="askTest('CEA')">+</button>
+   </div>
+
+   <div class="test" data-category="Advanced">
+    <div class="test-info">
+     <span class="test-name">AFP</span>
+     <span class="test-category">Advanced</span>
+    </div>
+    <button class="test-action" onclick="askTest('AFP')">+</button>
+   </div>
+
+  </div>
+
+  <div class="no-results" id="noResults">
+   No matching test found. Please WhatsApp us and our team will help you.
+  </div>
+
+  <div class="catalog-note">
+   * Test availability, sample requirements, preparation and pricing may vary.
+   Please confirm with Vcare Diagnostic Lab before booking.
+  </div>
+
  </div>
 </section>
 
@@ -272,6 +939,62 @@ document.getElementById('bookingForm').addEventListener('submit', function(e){
  const text=`Hi Vcare Diagnostic Lab,%0A%0AI want to book a test.%0A%0AName: ${encodeURIComponent(n)}%0APhone: ${encodeURIComponent(p)}%0ATest/Package: ${encodeURIComponent(t)}%0ACollection: ${encodeURIComponent(c)}%0AMessage: ${encodeURIComponent(m)}`;
  window.open('https://wa.me/918588931258?text='+text,'_blank');
 });
+  let selectedCategory = 'all';
+
+function setCategory(category, button){
+  selectedCategory = category;
+
+  document.querySelectorAll('.filter-btn').forEach(btn=>{
+    btn.classList.remove('active');
+  });
+
+  button.classList.add('active');
+
+  filterTests();
+}
+
+function filterTests(){
+  const search = document.getElementById('testSearch').value
+    .toLowerCase()
+    .trim();
+
+  const tests = document.querySelectorAll('#testGrid .test');
+  let visible = 0;
+
+  tests.forEach(test=>{
+    const name = test.querySelector('.test-name').textContent.toLowerCase();
+    const category = test.dataset.category;
+
+    const matchesSearch = name.includes(search);
+    const matchesCategory =
+      selectedCategory === 'all' ||
+      category === selectedCategory;
+
+    if(matchesSearch && matchesCategory){
+      test.style.display = 'flex';
+      visible++;
+    }else{
+      test.style.display = 'none';
+    }
+  });
+
+  document.getElementById('noResults').style.display =
+    visible === 0 ? 'block' : 'none';
+}
+
+function askTest(testName){
+  const message =
+    `Hi Vcare Diagnostic Lab,%0A%0A` +
+    `I want to enquire about the following test:%0A%0A` +
+    `Test: ${encodeURIComponent(testName)}%0A%0A` +
+    `Please share availability, preparation requirements and price.%0A%0A` +
+    `Thank you.`;
+
+  window.open(
+    'https://wa.me/918588931258?text=' + message,
+    '_blank'
+  );
+}
 </script>
 </body>
 </html>
