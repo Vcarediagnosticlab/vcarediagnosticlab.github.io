@@ -751,6 +751,213 @@ footer{
     border-color .25s ease,
     background .25s ease;
 }
+/* ================================
+   PREMIUM TEST INTERPRETATION MODAL
+================================ */
+
+.test-info-btn{
+  border:0;
+  background:rgba(8,43,76,.08);
+  color:var(--navy);
+  width:38px;
+  height:38px;
+  border-radius:12px;
+  font-size:18px;
+  font-weight:800;
+  cursor:pointer;
+  transition:.25s ease;
+}
+
+.test-info-btn:hover{
+  background:var(--navy);
+  color:#fff;
+  transform:translateY(-2px);
+}
+
+.test-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(3,20,35,.72);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:9999;
+}
+
+.test-modal.show{
+  display:flex;
+}
+
+.test-modal-box{
+  width:min(720px,100%);
+  max-height:90vh;
+  overflow-y:auto;
+  background:#fff;
+  border-radius:28px;
+  box-shadow:0 30px 80px rgba(0,0,0,.25);
+  position:relative;
+  animation:modalIn .25s ease;
+}
+
+@keyframes modalIn{
+  from{
+    opacity:0;
+    transform:translateY(20px) scale(.97);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+.test-modal-header{
+  padding:28px 30px 22px;
+  background:linear-gradient(135deg,var(--navy),var(--blue));
+  color:#fff;
+  position:relative;
+}
+
+.test-modal-header small{
+  display:inline-block;
+  background:rgba(255,255,255,.14);
+  padding:6px 11px;
+  border-radius:20px;
+  font-size:11px;
+  letter-spacing:.5px;
+  margin-bottom:10px;
+}
+
+.test-modal-header h2{
+  margin:0;
+  font-size:28px;
+  line-height:1.2;
+}
+
+.test-modal-close{
+  position:absolute;
+  top:18px;
+  right:18px;
+  width:40px;
+  height:40px;
+  border:0;
+  border-radius:50%;
+  background:rgba(255,255,255,.15);
+  color:#fff;
+  font-size:22px;
+  cursor:pointer;
+}
+
+.test-modal-body{
+  padding:26px 30px 30px;
+}
+
+.interpret-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.interpret-card{
+  background:#f7fbfc;
+  border:1px solid #e4f0f2;
+  border-radius:17px;
+  padding:18px;
+}
+
+.interpret-card.full{
+  grid-column:1/-1;
+}
+
+.interpret-card h4{
+  margin:0 0 8px;
+  color:var(--navy);
+  font-size:14px;
+}
+
+.interpret-card p{
+  margin:0;
+  color:#526777;
+  line-height:1.65;
+  font-size:13px;
+}
+
+.interpret-note{
+  margin-top:18px;
+  padding:15px 17px;
+  border-radius:15px;
+  background:#fff8e8;
+  border:1px solid #f3dfaa;
+  color:#705a24;
+  font-size:12px;
+  line-height:1.6;
+}
+
+.interpret-actions{
+  display:flex;
+  gap:10px;
+  margin-top:20px;
+}
+
+.interpret-actions a{
+  flex:1;
+  text-align:center;
+  text-decoration:none;
+  padding:13px 16px;
+  border-radius:13px;
+  font-weight:700;
+  font-size:13px;
+}
+
+.whatsapp-test-btn{
+  background:#128c7e;
+  color:#fff;
+}
+
+.close-test-btn{
+  background:#eef4f7;
+  color:var(--navy);
+  border:0;
+  cursor:pointer;
+}
+
+@media(max-width:600px){
+  .test-modal{
+    padding:10px;
+  }
+
+  .test-modal-box{
+    border-radius:22px;
+    max-height:94vh;
+  }
+
+  .test-modal-header{
+    padding:23px 22px 20px;
+  }
+
+  .test-modal-header h2{
+    font-size:23px;
+    padding-right:35px;
+  }
+
+  .test-modal-body{
+    padding:20px;
+  }
+
+  .interpret-grid{
+    grid-template-columns:1fr;
+  }
+
+  .interpret-card.full{
+    grid-column:auto;
+  }
+
+  .interpret-actions{
+    flex-direction:column;
+  }
+}
 </style>
 </head>
 <body>
@@ -1502,19 +1709,46 @@ footer{
 
 </div>
 <script>
+
+/* =========================================
+   BOOKING FORM
+========================================= */
+
 document.getElementById('bookingForm').addEventListener('submit', function(e){
- e.preventDefault();
- const n=document.getElementById('name').value.trim();
- const p=document.getElementById('phone').value.trim();
- const t=document.getElementById('test').value.trim();
- const c=document.getElementById('collection').value;
- const m=document.getElementById('message').value.trim();
- const text=`Hi Vcare Diagnostic Lab,%0A%0AI want to book a test.%0A%0AName: ${encodeURIComponent(n)}%0APhone: ${encodeURIComponent(p)}%0ATest/Package: ${encodeURIComponent(t)}%0ACollection: ${encodeURIComponent(c)}%0AMessage: ${encodeURIComponent(m)}`;
- window.open('https://wa.me/918588931258?text='+text,'_blank');
+
+  e.preventDefault();
+
+  const n = document.getElementById('name').value.trim();
+  const p = document.getElementById('phone').value.trim();
+  const t = document.getElementById('test').value.trim();
+  const c = document.getElementById('collection').value;
+  const m = document.getElementById('message').value.trim();
+
+  const text =
+    `Hi Vcare Diagnostic Lab,%0A%0A` +
+    `I want to book a test.%0A%0A` +
+    `Name: ${encodeURIComponent(n)}%0A` +
+    `Phone: ${encodeURIComponent(p)}%0A` +
+    `Test/Package: ${encodeURIComponent(t)}%0A` +
+    `Collection: ${encodeURIComponent(c)}%0A` +
+    `Message: ${encodeURIComponent(m)}`;
+
+  window.open(
+    'https://wa.me/918588931258?text=' + text,
+    '_blank'
+  );
+
 });
-  let selectedCategory = 'all';
+
+
+/* =========================================
+   TEST SEARCH + CATEGORY FILTER
+========================================= */
+
+let selectedCategory = 'all';
 
 function setCategory(category, button){
+
   selectedCategory = category;
 
   document.querySelectorAll('.filter-btn').forEach(btn=>{
@@ -1526,734 +1760,851 @@ function setCategory(category, button){
   filterTests();
 }
 
+
 function filterTests(){
-  const search = document.getElementById('testSearch').value
+
+  const searchInput = document.getElementById('testSearch');
+
+  if(!searchInput) return;
+
+  const search = searchInput.value
     .toLowerCase()
     .trim();
 
   const tests = document.querySelectorAll('#testGrid .test');
+
   let visible = 0;
 
   tests.forEach(test=>{
-    const name = test.querySelector('.test-name').textContent.toLowerCase();
+
+    const nameElement = test.querySelector('.test-name');
+
+    if(!nameElement) return;
+
+    const name = nameElement.textContent
+      .toLowerCase();
+
     const category = test.dataset.category;
 
-    const matchesSearch = name.includes(search);
+    const matchesSearch =
+      name.includes(search);
+
     const matchesCategory =
       selectedCategory === 'all' ||
       category === selectedCategory;
 
     if(matchesSearch && matchesCategory){
+
       test.style.display = 'flex';
       visible++;
+
     }else{
+
       test.style.display = 'none';
+
     }
+
   });
 
-  document.getElementById('noResults').style.display =
-    visible === 0 ? 'block' : 'none';
+  const noResults =
+    document.getElementById('noResults');
+
+  if(noResults){
+
+    noResults.style.display =
+      visible === 0 ? 'block' : 'none';
+
+  }
+
 }
 
-const testData = {
 
-"Complete Blood Count (CBC)": {
- category:"Haematology",
- subtitle:"A broad overview of your blood cells.",
- measures:"CBC measures major blood components including red blood cells, white blood cells, haemoglobin, haematocrit and platelets.",
- why:"It is commonly used for routine health assessment and to help evaluate anaemia, infection, inflammation and some blood disorders.",
- interpretation:"Results are interpreted by looking at the individual blood-cell parameters together rather than using one value alone.",
- low:"Depending on the parameter, lower values may be associated with anaemia, reduced blood-cell production, blood loss or other conditions.",
- high:"Depending on the parameter, higher values may occur with infection, inflammation, dehydration or other conditions.",
- preparation:"Usually no special preparation is required unless other tests are ordered with it.",
- sample:"Venous blood."
-},
+/* =========================================
+   WHATSAPP TEST ENQUIRY
+========================================= */
 
-"Haemoglobin (Hb)": {
- category:"Haematology",
- subtitle:"Measures the oxygen-carrying protein in red blood cells.",
- measures:"Haemoglobin is the protein in red blood cells that carries oxygen throughout the body.",
- why:"It is commonly checked when evaluating anaemia or other conditions affecting red blood cells.",
- interpretation:"The result is interpreted with the laboratory reference range and other blood-count parameters.",
- low:"Lower haemoglobin can be associated with anaemia, blood loss, nutritional deficiencies or other medical conditions.",
- high:"Higher levels can occur in dehydration, increased red-cell production or certain medical conditions.",
- preparation:"Usually no special preparation.",
- sample:"Venous blood."
-},
+function askTest(testName){
 
-"ESR": {
- category:"Haematology",
- subtitle:"A marker that can reflect inflammation.",
- measures:"ESR measures how quickly red blood cells settle in a tube of blood.",
- why:"It may be used with other tests to help assess or monitor inflammatory conditions.",
- interpretation:"A raised ESR can indicate inflammation, but ESR alone cannot identify its cause.",
- low:"A low ESR is usually interpreted in the context of the complete clinical picture.",
- high:"Higher ESR can occur with inflammation, infection and several other conditions.",
- preparation:"Usually no special preparation.",
- sample:"Venous blood."
-},
+  const message =
+    `Hi Vcare Diagnostic Lab,%0A%0A` +
+    `I want to enquire about the following test:%0A%0A` +
+    `Test: ${encodeURIComponent(testName)}%0A%0A` +
+    `Please share availability, preparation requirements and price.%0A%0A` +
+    `Thank you.`;
 
-"Platelet Count": {
- category:"Haematology",
- subtitle:"Measures the number of platelets in blood.",
- measures:"Platelets are blood components involved in normal clot formation.",
- why:"The test helps evaluate bleeding or clotting concerns and platelet disorders.",
- interpretation:"The result is assessed against the laboratory reference range and clinical findings.",
- low:"Lower platelet counts can be associated with increased bleeding risk depending on the degree and cause.",
- high:"Higher counts can occur in reactive conditions or certain blood disorders.",
- preparation:"Usually no special preparation.",
- sample:"Venous blood."
-},
+  window.open(
+    'https://wa.me/918588931258?text=' + message,
+    '_blank'
+  );
 
-"Peripheral Blood Smear": {
- category:"Haematology",
- subtitle:"Examines blood cells under a microscope.",
- measures:"A blood smear allows assessment of the appearance, size, shape and distribution of blood cells.",
- why:"It may help investigate abnormal CBC findings, anaemia, infections and blood-cell disorders.",
- interpretation:"The microscopic appearance is assessed alongside CBC results and clinical information.",
- low:"This is primarily a morphological examination rather than a single high/low measurement.",
- high:"This is primarily a morphological examination rather than a single high/low measurement.",
- preparation:"Usually no special preparation.",
- sample:"Peripheral blood."
-},
-
-"Reticulocyte Count": {
- category:"Haematology",
- subtitle:"Measures young red blood cells.",
- measures:"Reticulocytes are newly produced red blood cells released from the bone marrow.",
- why:"It helps assess how actively the bone marrow is producing red blood cells.",
- interpretation:"The result is interpreted with haemoglobin, CBC findings and the clinical situation.",
- low:"A lower count may indicate reduced red-cell production in some circumstances.",
- high:"A higher count may occur when the body is producing more red blood cells, such as after blood loss or during recovery from some anaemias.",
- preparation:"Usually no special preparation.",
- sample:"Venous blood."
-},
-
-"PT / INR": {
- category:"Haematology",
- subtitle:"Assesses part of the blood-clotting system.",
- measures:"PT measures the time needed for blood to clot; INR standardizes PT results.",
- why:"It may be used to evaluate bleeding/clotting problems and to monitor certain anticoagulant treatments.",
- interpretation:"Results are interpreted using the laboratory range and, when applicable, the therapeutic target specified by the treating clinician.",
- low:"A shorter clotting time is interpreted in clinical context and is not usually assessed in isolation.",
- high:"A prolonged PT/INR can indicate slower clotting and may occur with certain medications, liver problems or clotting-factor abnormalities.",
- preparation:"Tell your healthcare provider about medicines, especially anticoagulants.",
- sample:"Citrated venous blood."
-},
-
-"APTT": {
- category:"Haematology",
- subtitle:"Evaluates another part of the clotting pathway.",
- measures:"APTT measures the time required for clot formation through the intrinsic and common coagulation pathways.",
- why:"It can help evaluate bleeding disorders and monitor certain anticoagulant therapies.",
- interpretation:"Results are assessed with clinical history and other coagulation tests.",
- low:"A shorter APTT is interpreted in the context of other findings.",
- high:"A prolonged APTT may occur with certain clotting-factor deficiencies, anticoagulant medicines or other conditions.",
- preparation:"Inform the laboratory about medicines, especially anticoagulants.",
- sample:"Citrated venous blood."
-},
-
-"Fasting Blood Sugar (FBS)": {
- category:"Biochemistry",
- subtitle:"Measures blood glucose after fasting.",
- measures:"Fasting blood glucose measures the amount of glucose in blood after an overnight fasting period.",
- why:"It is commonly used for diabetes and blood-glucose assessment.",
- interpretation:"The result is interpreted according to the laboratory/clinical criteria being used.",
- low:"Lower glucose can occur with certain medicines, prolonged fasting and other conditions.",
- high:"Higher fasting glucose can be seen with impaired glucose regulation or diabetes and should be clinically assessed.",
- preparation:"Typically requires fasting; follow the instructions given by your healthcare provider or laboratory.",
- sample:"Venous blood."
-},
-
-"Post Prandial Blood Sugar (PPBS)": {
- category:"Biochemistry",
- subtitle:"Measures blood glucose after a meal.",
- measures:"PPBS measures blood glucose after eating, usually at a specified interval.",
- why:"It can help assess how the body handles glucose after food.",
- interpretation:"Timing of the sample is important and results should be interpreted with other glucose measurements.",
- low:"Lower values may occur with certain medicines, inadequate food intake or other causes.",
- high:"Higher post-meal glucose may indicate impaired glucose regulation and requires clinical interpretation.",
- preparation:"Follow the exact meal and collection timing provided by the laboratory/doctor.",
- sample:"Venous blood."
-},
-
-"HbA1c": {
- category:"Biochemistry",
- subtitle:"Reflects average blood glucose over roughly the previous 2–3 months.",
- measures:"HbA1c measures the percentage of haemoglobin carrying glucose.",
- why:"It is used for diabetes assessment and monitoring.",
- interpretation:"The result is interpreted using established clinical criteria and the individual's medical context.",
- low:"Lower values generally indicate lower average glucose, but interpretation may be affected by conditions affecting red blood cells.",
- high:"Higher HbA1c generally reflects higher average blood glucose.",
- preparation:"No fasting is normally required.",
- sample:"Venous blood."
-},
-
-"Liver Function Test (LFT)": {
- category:"Biochemistry",
- subtitle:"A group of tests related to liver health.",
- measures:"LFT panels commonly include enzymes, bilirubin, proteins and other markers associated with liver function or injury.",
- why:"It helps evaluate liver health and monitor known liver conditions or treatments.",
- interpretation:"Individual markers are interpreted together because different patterns can have different meanings.",
- low:"Low values are generally interpreted according to the specific component and clinical context.",
- high:"Raised liver enzymes or bilirubin can occur for many reasons, including liver or bile-duct conditions and some non-liver causes.",
- preparation:"Some LFT panels may require fasting; follow the laboratory's instructions.",
- sample:"Venous blood."
-},
-
-"Kidney Function Test (KFT)": {
- category:"Biochemistry",
- subtitle:"Evaluates markers associated with kidney function.",
- measures:"KFT panels may include creatinine, urea and electrolytes, with kidney filtration estimated from selected results.",
- why:"It is used to assess and monitor kidney function.",
- interpretation:"Results are interpreted together with age, medical history, medications and other kidney markers.",
- low:"Lower values may have different meanings depending on the individual marker.",
- high:"Raised creatinine or urea can occur with reduced kidney filtration, dehydration and other conditions.",
- preparation:"Preparation depends on the exact panel; follow laboratory instructions.",
- sample:"Venous blood."
-},
-
-"Lipid Profile": {
- category:"Biochemistry",
- subtitle:"Measures important blood fats.",
- measures:"A lipid profile commonly measures total cholesterol, HDL cholesterol, LDL cholesterol and triglycerides.",
- why:"It helps assess cardiovascular risk and monitor lipid-related treatment.",
- interpretation:"Results are interpreted together rather than focusing on one value alone.",
- low:"Lower levels can have different meanings depending on the lipid measured.",
- high:"Higher LDL, triglycerides or total cholesterol may be associated with increased cardiovascular risk, depending on the overall profile.",
- preparation:"Fasting requirements vary by test/panel and clinical purpose; follow your laboratory instructions.",
- sample:"Venous blood."
-},
-
-"Uric Acid": {
- category:"Biochemistry",
- subtitle:"Measures uric acid in blood.",
- measures:"Uric acid is produced when the body breaks down purines.",
- why:"The test may be used when evaluating gout, uric-acid kidney stones or related conditions.",
- interpretation:"The result is interpreted with symptoms, kidney function and other findings.",
- low:"Lower values may occur in some medical conditions or with certain medicines.",
- high:"Higher uric acid can be associated with gout and kidney stones, although an elevated result does not by itself diagnose either condition.",
- preparation:"Usually no special preparation unless combined with other tests.",
- sample:"Venous blood."
-},
-
-"Calcium": {
- category:"Biochemistry",
- subtitle:"Measures calcium in blood.",
- measures:"Blood calcium reflects the amount of calcium circulating in the bloodstream.",
- why:"It is important for evaluating bone, parathyroid, kidney and other conditions.",
- interpretation:"Calcium may be interpreted with albumin, vitamin D, parathyroid hormone and kidney function when appropriate.",
- low:"Low calcium can occur with vitamin D deficiency, parathyroid problems and other conditions.",
- high:"High calcium can occur with certain parathyroid, bone, kidney or other disorders.",
- preparation:"Usually no special preparation.",
- sample:"Venous blood."
-},
-
-"Phosphorus": {
- category:"Biochemistry",
- subtitle:"Measures phosphate in blood.",
- measures:"The test measures phosphorus/phosphate, an important mineral involved in bones, energy metabolism and cell function.",
- why:"It can help evaluate kidney, bone and mineral-balance disorders.",
- interpretation:"It is interpreted with calcium, kidney function and other clinical findings.",
- low:"Low phosphate may occur with nutritional problems, certain hormonal disorders or other conditions.",
- high:"High phosphate may occur with reduced kidney function or other metabolic conditions.",
- preparation:"Follow any fasting instructions if the test is part of a larger panel.",
- sample:"Venous blood."
-},
-
-"Iron Profile": {
- category:"Biochemistry",
- subtitle:"Assesses iron availability and transport.",
- measures:"An iron profile may include serum iron, TIBC/transferrin and transferrin saturation.",
- why:"It helps investigate iron deficiency and some iron-overload conditions.",
- interpretation:"The components are interpreted together, often with ferritin and CBC findings.",
- low:"Lower iron measures may occur with iron deficiency or other conditions.",
- high:"Higher iron measures may occur with iron overload, supplementation or other conditions.",
- preparation:"Some iron tests may have specific timing or fasting instructions.",
- sample:"Venous blood."
-},
-
-"Electrolytes": {
- category:"Biochemistry",
- subtitle:"Measures important body salts.",
- measures:"Electrolyte panels commonly assess sodium, potassium and chloride, and may include other electrolytes.",
- why:"They help evaluate fluid balance, kidney function and certain metabolic conditions.",
- interpretation:"Results are interpreted together because changes can be related to hydration, medicines, kidney function and other factors.",
- low:"Low levels depend on the specific electrolyte and may be associated with fluid or metabolic disturbances.",
- high:"High levels depend on the specific electrolyte and may occur with dehydration, kidney problems or other conditions.",
- preparation:"Usually no special preparation unless combined with other tests.",
- sample:"Venous blood."
-},
-
-"Thyroid Profile": {
- category:"Hormones",
- subtitle:"Evaluates thyroid-related hormones.",
- measures:"A thyroid profile commonly includes TSH and thyroid hormones such as free T4, and sometimes T3.",
- why:"It helps assess thyroid function and monitor thyroid disorders.",
- interpretation:"TSH and thyroid hormone results are interpreted together with symptoms, medicines and clinical history.",
- low:"Low values depend on the specific hormone and pattern of results.",
- high:"High values depend on the specific hormone and pattern of results.",
- preparation:"Usually no special preparation, but tell the provider about thyroid medicines and supplements.",
- sample:"Venous blood."
-},
-
-"TSH": {
- category:"Hormones",
- subtitle:"A key hormone used to assess thyroid function.",
- measures:"TSH is produced by the pituitary gland and signals the thyroid to produce thyroid hormones.",
- why:"It is commonly used to evaluate thyroid function.",
- interpretation:"TSH is interpreted with free T4/T3 and the clinical situation when appropriate.",
- low:"Low TSH can occur in some forms of increased thyroid activity or with certain other conditions.",
- high:"High TSH can occur when thyroid hormone production is insufficient.",
- preparation:"Usually no special preparation.",
- sample:"Venous blood."
-},
-
-"Free T3": {
- category:"Hormones",
- subtitle:"Measures the unbound form of thyroid hormone T3.",
- measures:"Free T3 measures the biologically available fraction of triiodothyronine.",
- why:"It can help assess thyroid function in selected clinical situations.",
- interpretation:"It is generally interpreted alongside TSH and free T4.",
- low:"Low free T3 may occur in some thyroid or non-thyroid illnesses.",
- high:"High free T3 may occur with increased thyroid hormone activity.",
- preparation:"Usually no special preparation.",
- sample:"Venous blood."
-},
-
-"Free T4": {
- category:"Hormones",
- subtitle:"Measures the unbound form of thyroid hormone T4.",
- measures:"Free T4 measures the available fraction of thyroxine circulating in blood.",
- why:"It helps evaluate thyroid function along with TSH.",
- interpretation:"The result is interpreted together with TSH and clinical findings.",
- low:"Low free T4 can occur when thyroid hormone production is insufficient.",
- high:"High free T4 can occur with increased thyroid hormone activity or certain other situations.",
- preparation:"Usually no special preparation.",
- sample:"Venous blood."
-},
-
-"FSH": {
- category:"Hormones",
- subtitle:"A reproductive hormone involved in ovarian and testicular function.",
- measures:"FSH is a pituitary hormone involved in reproductive function and development of eggs or sperm.",
- why:"It may be tested during fertility evaluation, menstrual disorders or assessment of reproductive function.",
- interpretation:"Interpretation depends strongly on age, sex, menstrual cycle stage and clinical context.",
- low:"Lower FSH may occur with certain pituitary or hypothalamic conditions.",
- high:"Higher FSH may occur with reduced ovarian or testicular function and other situations.",
- preparation:"Timing may matter; follow the doctor's instructions.",
- sample:"Venous blood."
-},
-
-"LH": {
- category:"Hormones",
- subtitle:"A reproductive hormone involved in ovulation and gonadal function.",
- measures:"LH is produced by the pituitary gland and plays a role in ovulation and sex-hormone production.",
- why:"It may be tested for fertility, menstrual or reproductive evaluation.",
- interpretation:"Results depend on age, sex and, in women, the menstrual-cycle phase.",
- low:"Lower LH can occur with certain pituitary or hypothalamic conditions.",
- high:"Higher LH can occur in some reproductive or gonadal disorders and around ovulation.",
- preparation:"Timing may be important; follow the prescribed collection schedule.",
- sample:"Venous blood."
-},
-
-"Prolactin": {
- category:"Hormones",
- subtitle:"Measures the hormone prolactin.",
- measures:"Prolactin is a hormone produced by the pituitary gland and is involved in breast development and milk production.",
- why:"It may be tested for menstrual changes, fertility concerns, unexpected milk production or selected pituitary disorders.",
- interpretation:"Time of collection, stress, medicines and clinical history can affect interpretation.",
- low:"Low prolactin is generally interpreted according to the clinical context.",
- high:"High prolactin can occur with pregnancy, certain medicines, pituitary disorders and other conditions.",
- preparation:"Follow timing instructions; avoid unusual stress or strenuous activity if advised.",
- sample:"Venous blood."
-},
-
-"Testosterone": {
- category:"Hormones",
- subtitle:"Measures the principal androgen hormone.",
- measures:"Testosterone is an important sex hormone produced mainly by the testes in males and in smaller amounts by the ovaries/adrenal glands in females.",
- why:"Testing may be used for selected reproductive, hormonal or endocrine evaluations.",
- interpretation:"Interpretation depends on sex, age, symptoms and collection time.",
- low:"Lower levels can have several causes and require clinical correlation.",
- high:"Higher levels can have several causes including hormonal disorders or medication/supplement effects.",
- preparation:"Morning collection may be recommended depending on the clinical purpose.",
- sample:"Venous blood."
-},
-
-"Estradiol (E2)": {
- category:"Hormones",
- subtitle:"A major form of estrogen.",
- measures:"Estradiol is an important estrogen hormone involved in reproductive and bone health.",
- why:"It may be tested for menstrual, fertility, menopausal or hormonal evaluation.",
- interpretation:"Results depend strongly on age, sex, menstrual-cycle stage and treatment.",
- low:"Lower levels can occur in menopause or with reduced ovarian function and other conditions.",
- high:"Higher levels may occur at certain stages of the menstrual cycle, pregnancy or other hormonal conditions.",
- preparation:"Timing according to menstrual cycle may be important.",
- sample:"Venous blood."
-},
-
-"Progesterone": {
- category:"Hormones",
- subtitle:"A hormone important in the menstrual cycle and pregnancy.",
- measures:"Progesterone is produced mainly by the ovaries after ovulation and by the placenta during pregnancy.",
- why:"It may be used in fertility and ovulation assessment and selected pregnancy-related evaluations.",
- interpretation:"The day of the menstrual cycle and pregnancy status are important.",
- low:"Interpretation depends strongly on the timing of collection.",
- high:"Higher values may be expected after ovulation and during pregnancy; other causes are possible.",
- preparation:"Follow the exact collection day advised by the doctor.",
- sample:"Venous blood."
-},
-
-"Cortisol": {
- category:"Hormones",
- subtitle:"Measures a major adrenal hormone.",
- measures:"Cortisol is produced by the adrenal glands and helps regulate metabolism and the body's response to stress.",
- why:"It may be used when evaluating selected adrenal or endocrine disorders.",
- interpretation:"Cortisol follows a daily rhythm, so collection time is important.",
- low:"Low levels may occur with certain adrenal or pituitary disorders.",
- high:"High levels may occur with stress, certain medicines or endocrine disorders.",
- preparation:"Collection time and medication instructions are important.",
- sample:"Blood; other sample types may be used for specific cortisol tests."
-},
-
-"Insulin": {
- category:"Hormones",
- subtitle:"Measures insulin concentration in blood.",
- measures:"Insulin is a hormone produced by the pancreas that helps regulate blood glucose.",
- why:"It may be used in selected evaluations of glucose metabolism and insulin production.",
- interpretation:"It is interpreted with glucose and other metabolic findings.",
- low:"Lower insulin may occur when pancreatic insulin production is reduced.",
- high:"Higher insulin can occur with insulin resistance and other metabolic situations.",
- preparation:"Fasting may be required depending on the test requested.",
- sample:"Venous blood."
-},
-
-"CRP": {
- category:"Immunology",
- subtitle:"A blood marker associated with inflammation.",
- measures:"C-reactive protein is produced by the liver and can rise in response to inflammation.",
- why:"It may help assess inflammation and monitor certain conditions.",
- interpretation:"CRP is non-specific and must be interpreted with symptoms and other tests.",
- low:"A low CRP generally indicates little measurable systemic inflammation at the time of testing.",
- high:"Higher CRP can occur with infection, inflammation and many other conditions.",
- preparation:"Usually no special preparation.",
- sample:"Venous blood."
-},
-
-"RA Factor": {
- category:"Immunology",
- subtitle:"Measures rheumatoid factor antibodies.",
- measures:"Rheumatoid factor is an antibody that can be present in some autoimmune conditions.",
- why:"It may be included in the evaluation of symptoms suggestive of inflammatory joint disease.",
- interpretation:"A positive result does not by itself diagnose rheumatoid arthritis.",
- low:"A negative result does not completely exclude autoimmune disease.",
- high:"Higher or positive results can occur in rheumatoid arthritis and in some other autoimmune, infectious or chronic conditions.",
- preparation:"Usually no special preparation.",
- sample:"Venous blood."
-},
-
-"ASO Titre": {
- category:"Immunology",
- subtitle:"Detects antibodies associated with recent streptococcal exposure.",
- measures:"ASO antibodies are produced after infection with certain Streptococcus bacteria.",
- why:"The test may help investigate evidence of a recent streptococcal infection in selected clinical situations.",
- interpretation:"Results are interpreted with symptoms and timing because antibodies can remain after infection.",
- low:"A low/negative result may mean no significant antibody level was detected, but timing matters.",
- high:"A raised titre can indicate recent exposure but does not by itself prove an active infection.",
- preparation:"Usually no special preparation.",
- sample:"Venous blood."
-},
-
-"Widal Test": {
- category:"Immunology",
- subtitle:"A serological test historically used in typhoid evaluation.",
- measures:"Widal testing measures antibodies against selected Salmonella antigens.",
- why:"It may be requested in some settings when typhoid fever is suspected.",
- interpretation:"Results can be affected by previous infection, vaccination, local background antibody levels and timing; clinical assessment is important.",
- low:"A low or negative result does not always exclude early infection.",
- high:"Raised titres require clinical correlation and should not be interpreted alone.",
- preparation:"Usually no special preparation.",
- sample:"Venous blood."
-},
-
-"Dengue Profile": {
- category:"Immunology",
- subtitle:"May include dengue-specific antigen and/or antibodies.",
- measures:"Depending on the panel, dengue testing may detect NS1 antigen and/or IgM/IgG antibodies.",
- why:"It helps evaluate suspected dengue infection.",
- interpretation:"The appropriate marker depends on the stage of illness; results must be interpreted with symptoms and timing.",
- low:"A negative result may occur if testing is performed at a time when the selected marker is not yet detectable.",
- high:"A positive marker can support dengue infection but interpretation depends on the specific marker and timing.",
- preparation:"Usually no special preparation.",
- sample:"Venous blood."
-},
-
-"Malaria Test": {
- category:"Immunology",
- subtitle:"Looks for evidence of malaria infection.",
- measures:"Depending on the method, malaria testing may detect parasites or malaria antigens in blood.",
- why:"It is used when malaria infection is suspected.",
- interpretation:"Results are interpreted with symptoms, travel/exposure history and the test method used.",
- low:"A negative result means no malaria evidence was detected by that test at that time; repeat testing may sometimes be advised clinically.",
- high:"A positive result can indicate malaria infection and requires medical management.",
- preparation:"Usually no special preparation.",
- sample:"Blood."
-},
-
-"HBsAg": {
- category:"Immunology",
- subtitle:"Detects hepatitis B surface antigen.",
- measures:"HBsAg is a marker used to detect current hepatitis B infection.",
- why:"It is used in hepatitis B evaluation and screening.",
- interpretation:"A positive result requires appropriate clinical follow-up and confirmatory/related testing.",
- low:"A negative result means HBsAg was not detected, but it does not by itself establish immunity.",
- high:"A positive result may indicate current hepatitis B infection and needs medical evaluation.",
- preparation:"Usually no special preparation.",
- sample:"Venous blood."
-},
-
-"HIV Screening": {
- category:"Immunology",
- subtitle:"Screens for evidence of HIV infection.",
- measures:"HIV screening tests detect HIV-related antigen and/or antibodies depending on the assay.",
- why:"Screening helps identify HIV infection so appropriate confirmatory testing and care can be arranged.",
- interpretation:"Reactive screening results require appropriate confirmatory testing according to testing protocols.",
- low:"A non-reactive result means the screening test did not detect the targeted markers; timing after exposure matters.",
- high:"Screening tests are generally reported as reactive/non-reactive rather than simply high/low.",
- preparation:"Usually no special preparation.",
- sample:"Venous blood."
-},
-
-"HCV Screening": {
- category:"Immunology",
- subtitle:"Screens for hepatitis C infection.",
- measures:"HCV screening commonly looks for antibodies against hepatitis C virus.",
- why:"It helps identify people who may have been exposed to HCV.",
- interpretation:"A reactive antibody screen generally requires additional testing to determine whether current infection is present.",
- low:"A non-reactive result means antibodies were not detected, although very recent exposure may require follow-up.",
- high:"Screening is generally interpreted as reactive/non-reactive rather than high/low.",
- preparation:"Usually no special preparation.",
- sample:"Venous blood."
-},
-
-"Vitamin D": {
- category:"Vitamins",
- subtitle:"Assesses vitamin D status.",
- measures:"The commonly measured marker is 25-hydroxyvitamin D, reflecting vitamin D stores.",
- why:"It may be tested when vitamin D deficiency is suspected or monitored.",
- interpretation:"The result should be interpreted using the laboratory's reference interval and clinical context.",
- low:"Lower levels may indicate inadequate vitamin D status.",
- high:"Higher levels can occur with excessive supplementation and may require medical assessment.",
- preparation:"Usually no special preparation.",
- sample:"Venous blood."
-},
-
-"Vitamin B12": {
- category:"Vitamins",
- subtitle:"Measures vitamin B12 concentration.",
- measures:"Vitamin B12 is important for red blood cell formation and normal nerve function.",
- why:"Testing may help investigate certain anaemias, neurological symptoms or nutritional concerns.",
- interpretation:"B12 is interpreted with CBC and sometimes folate or additional markers.",
- low:"Lower levels can occur with inadequate intake, absorption problems or certain medicines.",
- high:"Higher levels can occur with supplementation and some medical conditions.",
- preparation:"Usually no special preparation.",
- sample:"Venous blood."
-},
-
-"Folate": {
- category:"Vitamins",
- subtitle:"Measures folate, an important B vitamin.",
- measures:"Folate is required for DNA synthesis and normal red blood cell production.",
- why:"It may be tested when evaluating certain types of anaemia or nutritional deficiency.",
- interpretation:"Results are interpreted with CBC, vitamin B12 and clinical information.",
- low:"Low folate can contribute to certain forms of anaemia.",
- high:"Higher levels commonly reflect supplementation or recent intake.",
- preparation:"Follow any instructions provided by the laboratory.",
- sample:"Venous blood."
-},
-
-"Ferritin": {
- category:"Vitamins",
- subtitle:"Reflects stored iron and can also respond to inflammation.",
- measures:"Ferritin is a protein that stores iron in the body.",
- why:"It is commonly used when evaluating iron deficiency and iron stores.",
- interpretation:"Ferritin should be interpreted with iron studies and inflammation markers when appropriate.",
- low:"Low ferritin commonly supports reduced iron stores.",
- high:"High ferritin can occur with inflammation, liver disease, iron overload and other conditions.",
- preparation:"Follow laboratory instructions, especially if combined with other iron tests.",
- sample:"Venous blood."
-},
-
-"Urine Routine & Microscopy": {
- category:"Urine",
- subtitle:"A broad examination of urine.",
- measures:"It evaluates urine appearance, chemical characteristics and microscopic findings such as cells, crystals and microorganisms.",
- why:"It may help evaluate urinary symptoms, infection, kidney conditions and metabolic abnormalities.",
- interpretation:"Findings are interpreted together rather than from one urine parameter alone.",
- low:"Many urine parameters are not interpreted as simply high or low.",
- high:"Abnormal findings may include blood, protein, glucose, cells, crystals or microorganisms depending on the test.",
- preparation:"Use a clean container and follow collection instructions; a clean-catch midstream sample is commonly requested.",
- sample:"Urine."
-},
-
-"Urine Culture": {
- category:"Urine",
- subtitle:"Checks urine for bacterial growth.",
- measures:"Urine culture attempts to identify microorganisms that may cause urinary tract infection.",
- why:"It is used when a urinary infection is suspected and can help guide antibiotic selection.",
- interpretation:"Growth is interpreted with organism identification and susceptibility results.",
- low:"No significant growth generally means no clinically significant organism was detected by the culture.",
- high:"Significant growth may indicate a urinary infection, but interpretation depends on the organism and collection quality.",
- preparation:"Follow clean-catch collection instructions and ideally collect before antibiotics when clinically advised.",
- sample:"Clean-catch midstream urine."
-},
-
-"Urine Protein": {
- category:"Urine",
- subtitle:"Checks for protein in urine.",
- measures:"The test detects or measures protein excreted in urine.",
- why:"It may help evaluate kidney function and certain systemic conditions.",
- interpretation:"Persistent protein in urine may need further evaluation with quantitative urine testing.",
- low:"Little or no protein is generally expected in urine.",
- high:"Increased urinary protein can occur with kidney disease and several temporary conditions.",
- preparation:"Follow collection instructions; some tests require timed urine collection.",
- sample:"Urine."
-},
-
-"Urine Pregnancy Test": {
- category:"Urine",
- subtitle:"Detects pregnancy-related hCG in urine.",
- measures:"The test detects human chorionic gonadotropin (hCG), a hormone produced during pregnancy.",
- why:"It is used to screen for pregnancy.",
- interpretation:"Timing matters; testing too early can produce a negative result despite pregnancy.",
- low:"A negative result means hCG was not detected at the test's detection threshold.",
- high:"A positive result indicates hCG was detected and should be interpreted with clinical context.",
- preparation:"Follow the kit/laboratory collection instructions.",
- sample:"Urine."
-},
-
-"Hb Electrophoresis": {
- category:"Advanced",
- subtitle:"Examines different types of haemoglobin.",
- measures:"Haemoglobin electrophoresis separates and measures different haemoglobin types.",
- why:"It may help investigate inherited haemoglobin disorders such as thalassemia or sickle-cell disease.",
- interpretation:"Results are interpreted with CBC indices, age, clinical history and sometimes genetic testing.",
- low:"Interpretation depends on the specific haemoglobin fraction.",
- high:"Abnormal haemoglobin fractions may suggest an inherited or acquired haemoglobin disorder.",
- preparation:"Usually no special preparation.",
- sample:"Venous blood."
-},
-
-"Thalassemia Screening": {
- category:"Advanced",
- subtitle:"Assesses features associated with thalassemia.",
- measures:"Screening may use CBC indices, haemoglobin analysis and other laboratory findings.",
- why:"It may be used when thalassemia trait or another haemoglobin disorder is suspected.",
- interpretation:"Screening findings may need confirmation with haemoglobin analysis or genetic testing.",
- low:"There is no single universal high/low interpretation for a screening panel.",
- high:"Abnormal indices or haemoglobin fractions may support further evaluation.",
- preparation:"Usually no special preparation.",
- sample:"Venous blood."
-},
-
-"ANA": {
- category:"Advanced",
- subtitle:"Screens for antinuclear antibodies.",
- measures:"ANA testing detects antibodies directed against components of the cell nucleus.",
- why:"It may be used when certain autoimmune diseases are suspected.",
- interpretation:"A positive ANA does not by itself establish an autoimmune diagnosis; pattern, titre and clinical findings matter.",
- low:"A negative result reduces the likelihood of some ANA-associated diseases but does not exclude every autoimmune condition.",
- high:"A positive result can occur in autoimmune disease and sometimes in healthy people or other conditions.",
- preparation:"Usually no special preparation.",
- sample:"Venous blood."
-},
-
-"Anti-CCP": {
- category:"Advanced",
- subtitle:"Detects antibodies associated with rheumatoid arthritis.",
- measures:"Anti-CCP antibodies are autoantibodies that can be associated with rheumatoid arthritis.",
- why:"It may help evaluate inflammatory joint symptoms.",
- interpretation:"Results are interpreted with symptoms, examination and other tests such as rheumatoid factor.",
- low:"A negative result does not completely exclude rheumatoid arthritis.",
- high:"A positive result can support evaluation for rheumatoid arthritis but is not interpreted alone.",
- preparation:"Usually no special preparation.",
- sample:"Venous blood."
-},
-
-"D-Dimer": {
- category:"Advanced",
- subtitle:"Measures a substance produced when blood clots are broken down.",
- measures:"D-dimer is a fragment produced during clot breakdown.",
- why:"It may be used in selected situations when evaluating possible abnormal clot formation.",
- interpretation:"Its usefulness depends strongly on clinical probability and the testing context.",
- low:"A low/non-elevated result may help make certain clotting conditions less likely in appropriate clinical settings.",
- high:"An elevated result can occur with clotting and many other conditions, so it is not specific for a blood clot.",
- preparation:"Usually no special preparation.",
- sample:"Venous blood."
-},
-
-"PSA": {
- category:"Advanced",
- subtitle:"Measures prostate-specific antigen.",
- measures:"PSA is a protein produced by prostate tissue.",
- why:"It may be used in prostate evaluation and, in selected men, cancer screening or monitoring.",
- interpretation:"PSA must be interpreted with age, symptoms, prostate history and other clinical information.",
- low:"Lower PSA generally indicates a lower measured level but does not by itself rule out prostate disease.",
- high:"Higher PSA can occur with benign prostate enlargement, prostatitis and prostate cancer; it is not cancer-specific.",
- preparation:"Follow clinician instructions; prostate procedures and ejaculation may affect results.",
- sample:"Venous blood."
-},
-
-"CA-125": {
- category:"Advanced",
- subtitle:"Measures the CA-125 tumour marker.",
- measures:"CA-125 is a protein that can be measured in blood.",
- why:"It is mainly used in selected ovarian-cancer evaluation and monitoring rather than as a stand-alone diagnosis.",
- interpretation:"A raised CA-125 is not specific for cancer and must be interpreted with imaging, symptoms and other findings.",
- low:"A lower result does not independently rule out disease.",
- high:"Higher levels can occur with ovarian cancer and also with several non-cancerous conditions.",
- preparation:"Usually no special preparation.",
- sample:"Venous blood."
-},
-
-"CA 19-9": {
- category:"Advanced",
- subtitle:"Measures the CA 19-9 tumour marker.",
- measures:"CA 19-9 is a substance that can be measured in blood.",
- why:"It is mainly used with other information in selected gastrointestinal cancers, especially for monitoring.",
- interpretation:"CA 19-9 cannot by itself diagnose cancer and may rise in non-cancerous conditions.",
- low:"A lower result does not independently exclude disease.",
- high:"Higher levels can occur with certain cancers as well as some benign liver or bile-duct conditions.",
- preparation:"Usually no special preparation.",
- sample:"Venous blood."
-},
-
-"CEA": {
- category:"Advanced",
- subtitle:"Measures carcinoembryonic antigen.",
- measures:"CEA is a protein that can act as a tumour marker.",
- why:"It is mainly used to monitor certain cancers after diagnosis and treatment.",
- interpretation:"CEA is not specific for cancer and should be interpreted with clinical findings.",
- low:"Lower levels generally indicate less measurable CEA but do not independently exclude cancer.",
- high:"Higher CEA can occur with certain cancers and also with some non-cancerous conditions.",
- preparation:"Usually no special preparation.",
- sample:"Venous blood."
-},
-
-"AFP": {
- category:"Advanced",
- subtitle:"Measures alpha-fetoprotein.",
- measures:"AFP is a protein produced during fetal development and can be measured in blood.",
- why:"It may be used in selected liver and germ-cell tumour evaluations and monitoring.",
- interpretation:"AFP results are interpreted with clinical history, imaging and other tests.",
- low:"A lower AFP does not by itself exclude disease.",
- high:"Raised AFP can occur with certain cancers as well as some non-cancerous liver conditions and pregnancy.",
- preparation:"Usually no special preparation.",
- sample:"Venous blood."
 }
+
+
+/* =========================================
+   TEST INTERPRETATION DATABASE
+========================================= */
+
+const testInfo = {
+
+  "CBC": {
+    category:"Haematology",
+    what:"Complete Blood Count (CBC) is a commonly performed blood test that provides information about red blood cells, white blood cells and platelets.",
+    why:"It is commonly used as part of routine health assessment and may help evaluate symptoms such as fatigue, weakness, fever or suspected infection.",
+    measure:"Haemoglobin, red blood cell parameters, white blood cell count and platelet count.",
+    interpretation:"Results are interpreted by looking at the individual parameters and their pattern rather than one value alone. Clinical history and the laboratory reference range are important.",
+    preparation:"Usually no special preparation is required unless other tests are being performed along with CBC."
+  },
+
+  "Haemoglobin": {
+    category:"Haematology",
+    what:"Haemoglobin is the oxygen-carrying protein present inside red blood cells.",
+    why:"It may be tested when evaluating anaemia, weakness, fatigue or other blood-related conditions.",
+    measure:"The concentration of haemoglobin in the blood.",
+    interpretation:"A result outside the laboratory reference range may require assessment along with red blood cell indices, symptoms and medical history.",
+    preparation:"Usually no special preparation is required."
+  },
+
+  "ESR": {
+    category:"Haematology",
+    what:"ESR (Erythrocyte Sedimentation Rate) measures how quickly red blood cells settle in a tube of blood.",
+    why:"It can be used as a nonspecific marker when evaluating inflammation or monitoring certain conditions.",
+    measure:"The sedimentation rate of red blood cells.",
+    interpretation:"ESR is nonspecific and can be influenced by many factors. It should not be interpreted alone.",
+    preparation:"Usually no special preparation is required."
+  },
+
+  "Platelet Count": {
+    category:"Haematology",
+    what:"Platelet Count measures the number of platelets in the blood.",
+    why:"It may be performed when assessing bleeding, clotting or certain blood-related conditions.",
+    measure:"The number of circulating platelets.",
+    interpretation:"Values outside the laboratory reference range may need clinical correlation and sometimes repeat testing.",
+    preparation:"Usually no special preparation is required."
+  },
+
+  "Peripheral Blood Smear": {
+    category:"Haematology",
+    what:"Peripheral Blood Smear involves examining blood cells under a microscope.",
+    why:"It can provide additional information about the appearance and characteristics of blood cells.",
+    measure:"The morphology and appearance of red cells, white cells and platelets.",
+    interpretation:"Findings are interpreted by trained laboratory professionals in combination with CBC results and clinical information.",
+    preparation:"Usually no special preparation is required."
+  },
+
+  "Reticulocyte Count": {
+    category:"Haematology",
+    what:"Reticulocyte Count measures young red blood cells released by the bone marrow.",
+    why:"It can help assess how actively the bone marrow is producing red blood cells.",
+    measure:"The number or percentage of reticulocytes in blood.",
+    interpretation:"The result is interpreted with haemoglobin, red cell indices and clinical context.",
+    preparation:"Usually no special preparation is required."
+  },
+
+  "PT/INR": {
+    category:"Haematology",
+    what:"PT/INR evaluates a part of the blood clotting system.",
+    why:"It may be used to assess clotting function and to monitor certain anticoagulant treatments.",
+    measure:"Prothrombin time and the standardized INR value.",
+    interpretation:"Results depend on the clinical situation and, when applicable, the treatment target specified by the doctor.",
+    preparation:"Tell the healthcare provider about medicines and supplements being taken."
+  },
+
+  "APTT": {
+    category:"Haematology",
+    what:"APTT is a blood test used to assess certain clotting pathways.",
+    why:"It may be used during evaluation of abnormal bleeding or clotting and for monitoring selected treatments.",
+    measure:"The time required for clot formation under standardized laboratory conditions.",
+    interpretation:"Results should be interpreted with other coagulation tests and clinical history.",
+    preparation:"Inform the healthcare provider about medicines and supplements."
+  },
+
+
+  "FBS": {
+    category:"Biochemistry",
+    what:"Fasting Blood Sugar measures blood glucose after a period of fasting.",
+    why:"It is commonly used for diabetes screening and glucose assessment.",
+    measure:"Blood glucose concentration in the fasting state.",
+    interpretation:"Results should be compared with the laboratory's reference or diagnostic criteria and interpreted in clinical context.",
+    preparation:"Fasting requirements should be followed according to the laboratory's instructions."
+  },
+
+  "PPBS": {
+    category:"Biochemistry",
+    what:"Post-Prandial Blood Sugar measures blood glucose after a meal.",
+    why:"It helps assess how the body handles glucose after food.",
+    measure:"Blood glucose following the specified post-meal period.",
+    interpretation:"The timing of the sample and the laboratory's reference criteria are important when interpreting the result.",
+    preparation:"Follow the laboratory's specific instructions regarding meal timing and sample collection."
+  },
+
+  "HbA1c": {
+    category:"Biochemistry",
+    what:"HbA1c reflects average blood glucose exposure over approximately the previous two to three months.",
+    why:"It is commonly used for diabetes assessment and monitoring.",
+    measure:"The percentage of haemoglobin carrying glucose.",
+    interpretation:"Results are interpreted according to accepted clinical criteria and the patient's individual situation.",
+    preparation:"Fasting is generally not required for HbA1c alone."
+  },
+
+  "LFT": {
+    category:"Biochemistry",
+    what:"Liver Function Tests (LFT) are a group of blood tests that provide information about liver-related enzymes, proteins and substances processed by the liver.",
+    why:"They may be used during evaluation of liver disease, medication effects or other health conditions.",
+    measure:"Depending on the panel, tests may include enzymes, bilirubin, proteins and other markers.",
+    interpretation:"Individual markers should be considered together rather than interpreting one result in isolation.",
+    preparation:"Preparation depends on the exact panel and other tests ordered."
+  },
+
+  "KFT": {
+    category:"Biochemistry",
+    what:"Kidney Function Tests (KFT) evaluate blood markers related to kidney function.",
+    why:"They may be used for routine assessment or when kidney function needs evaluation.",
+    measure:"Depending on the panel, markers may include creatinine, urea and electrolytes.",
+    interpretation:"Results are interpreted along with hydration status, medicines, age and other clinical factors.",
+    preparation:"Follow the laboratory's instructions, especially if other tests are being performed."
+  },
+
+  "Lipid Profile": {
+    category:"Biochemistry",
+    what:"Lipid Profile measures several blood fats associated with cardiovascular health.",
+    why:"It is commonly used to assess lipid status and cardiovascular risk factors.",
+    measure:"Depending on the panel, total cholesterol, HDL, LDL, triglycerides and related parameters.",
+    interpretation:"Results are interpreted as a complete lipid pattern and in relation to the individual's overall cardiovascular risk.",
+    preparation:"Fasting requirements vary depending on the test panel and clinical instructions."
+  },
+
+  "Uric Acid": {
+    category:"Biochemistry",
+    what:"Uric Acid measures the level of uric acid in the blood.",
+    why:"It may be assessed during evaluation of gout, kidney-related issues or abnormal uric acid metabolism.",
+    measure:"Uric acid concentration in blood.",
+    interpretation:"A result outside the reference range does not by itself establish a diagnosis.",
+    preparation:"Usually no special preparation is required unless combined with other tests."
+  },
+
+  "Calcium": {
+    category:"Biochemistry",
+    what:"Blood Calcium measures calcium concentration in the blood.",
+    why:"It may be assessed in relation to bones, parathyroid function, kidney health and other conditions.",
+    measure:"Calcium concentration in blood.",
+    interpretation:"Interpretation may depend on albumin and other related laboratory findings.",
+    preparation:"Usually no special preparation is required."
+  },
+
+  "Phosphorus": {
+    category:"Biochemistry",
+    what:"Blood Phosphorus measures phosphate levels in the bloodstream.",
+    why:"It may be useful when evaluating mineral balance, kidney function or bone-related conditions.",
+    measure:"Phosphate concentration in blood.",
+    interpretation:"Results are interpreted together with calcium, kidney function and clinical information.",
+    preparation:"Follow the laboratory's instructions if fasting is required for the complete test panel."
+  },
+
+  "Iron Profile": {
+    category:"Biochemistry",
+    what:"Iron Profile is a group of tests used to evaluate iron status in the body.",
+    why:"It can assist in evaluating suspected iron deficiency or disorders of iron metabolism.",
+    measure:"Depending on the panel, serum iron, binding capacity, transferrin saturation and related parameters.",
+    interpretation:"The pattern of several iron markers is more informative than a single result.",
+    preparation:"Some laboratories may recommend a specific collection time or fasting. Follow laboratory instructions."
+  },
+
+  "Electrolytes": {
+    category:"Biochemistry",
+    what:"Electrolyte testing measures important minerals involved in fluid balance, nerve function and muscle activity.",
+    why:"It may be useful in evaluating dehydration, kidney-related conditions and other medical situations.",
+    measure:"Common electrolytes include sodium, potassium and chloride, depending on the panel.",
+    interpretation:"Results should be assessed together with symptoms, hydration status, medicines and kidney function.",
+    preparation:"Usually no special preparation is required."
+  },
+
+
+  "Thyroid Profile": {
+    category:"Hormones",
+    what:"Thyroid Profile is a group of tests used to assess thyroid hormone function.",
+    why:"It may be ordered when evaluating symptoms or monitoring known thyroid conditions.",
+    measure:"Depending on the panel, TSH, T3 and T4 measurements.",
+    interpretation:"Thyroid results are interpreted as a pattern and according to the laboratory's reference ranges.",
+    preparation:"Usually no special preparation is required, but medicines should be disclosed."
+  },
+
+  "TSH": {
+    category:"Hormones",
+    what:"TSH (Thyroid Stimulating Hormone) is produced by the pituitary gland and regulates thyroid activity.",
+    why:"It is commonly used to assess thyroid function.",
+    measure:"The concentration of thyroid-stimulating hormone in blood.",
+    interpretation:"TSH is generally interpreted together with free thyroid hormones and clinical symptoms.",
+    preparation:"Usually no special preparation is required."
+  },
+
+  "Free T3": {
+    category:"Hormones",
+    what:"Free T3 measures the unbound fraction of triiodothyronine available for biological activity.",
+    why:"It can provide additional information during thyroid evaluation.",
+    measure:"Free circulating T3 hormone.",
+    interpretation:"It is usually considered alongside TSH and Free T4.",
+    preparation:"Usually no special preparation is required."
+  },
+
+  "Free T4": {
+    category:"Hormones",
+    what:"Free T4 measures the unbound fraction of thyroxine circulating in blood.",
+    why:"It is commonly used with TSH to evaluate thyroid function.",
+    measure:"Free circulating thyroxine.",
+    interpretation:"Interpretation depends on TSH, symptoms, medications and laboratory reference range.",
+    preparation:"Usually no special preparation is required."
+  },
+
+  "FSH": {
+    category:"Hormones",
+    what:"FSH (Follicle-Stimulating Hormone) is a reproductive hormone involved in ovarian and testicular function.",
+    why:"It may be tested during evaluation of reproductive and hormonal conditions.",
+    measure:"FSH concentration in blood.",
+    interpretation:"Interpretation depends on age, sex, menstrual cycle stage and clinical context.",
+    preparation:"Follow the doctor's instructions regarding timing of the sample."
+  },
+
+  "LH": {
+    category:"Hormones",
+    what:"LH (Luteinizing Hormone) is involved in reproductive hormone regulation.",
+    why:"It may be tested during fertility and hormonal evaluations.",
+    measure:"LH concentration in blood.",
+    interpretation:"Results can vary substantially depending on sex, age and menstrual cycle stage.",
+    preparation:"Sample timing may be important; follow the doctor's instructions."
+  },
+
+  "Prolactin": {
+    category:"Hormones",
+    what:"Prolactin is a hormone primarily produced by the pituitary gland.",
+    why:"It may be assessed during evaluation of menstrual, fertility or other hormonal concerns.",
+    measure:"Prolactin concentration in blood.",
+    interpretation:"Stress, sleep, medicines and timing can influence prolactin levels.",
+    preparation:"Follow collection instructions; avoid unnecessary stress before sampling when advised."
+  },
+
+  "Testosterone": {
+    category:"Hormones",
+    what:"Testosterone is an important sex hormone present in both males and females.",
+    why:"It may be tested during evaluation of reproductive, hormonal or related symptoms.",
+    measure:"Testosterone concentration in blood.",
+    interpretation:"Interpretation depends on sex, age, timing of collection and clinical context.",
+    preparation:"Follow the doctor's instructions regarding sample timing."
+  },
+
+  "Estradiol (E2)": {
+    category:"Hormones",
+    what:"Estradiol (E2) is a major form of estrogen.",
+    why:"It may be measured during fertility, reproductive or hormonal evaluations.",
+    measure:"Estradiol concentration in blood.",
+    interpretation:"Levels naturally vary with age, sex and menstrual cycle stage.",
+    preparation:"Sample timing may be important depending on the clinical purpose."
+  },
+
+  "Progesterone": {
+    category:"Hormones",
+    what:"Progesterone is a reproductive hormone that changes during the menstrual cycle and pregnancy.",
+    why:"It may be measured during fertility and reproductive evaluations.",
+    measure:"Progesterone concentration in blood.",
+    interpretation:"Interpretation strongly depends on the timing of the menstrual cycle or pregnancy stage.",
+    preparation:"Follow the doctor's instructions regarding the correct day for collection."
+  },
+
+  "Cortisol": {
+    category:"Hormones",
+    what:"Cortisol is a hormone produced by the adrenal glands and follows a daily pattern.",
+    why:"It may be tested during evaluation of adrenal hormone-related conditions.",
+    measure:"Cortisol concentration in the collected sample.",
+    interpretation:"Time of sample collection is particularly important because cortisol changes throughout the day.",
+    preparation:"Follow the specified collection time and medication instructions."
+  },
+
+  "Insulin": {
+    category:"Hormones",
+    what:"Insulin is a hormone that helps regulate blood glucose.",
+    why:"Insulin testing may be used in selected metabolic and endocrine evaluations.",
+    measure:"Insulin concentration in blood.",
+    interpretation:"Interpretation often considers glucose levels and whether the sample was fasting.",
+    preparation:"Fasting may be required depending on the test purpose."
+  },
+
+
+  "CRP": {
+    category:"Immunology",
+    what:"CRP (C-Reactive Protein) is a protein that can increase during inflammation.",
+    why:"It may be used as part of the assessment of inflammatory conditions.",
+    measure:"CRP concentration in blood.",
+    interpretation:"CRP is nonspecific and should be interpreted with symptoms and other findings.",
+    preparation:"Usually no special preparation is required."
+  },
+
+  "RA Factor": {
+    category:"Immunology",
+    what:"Rheumatoid Factor is an antibody that can be detected in the blood.",
+    why:"It may be included in evaluation of certain autoimmune or joint-related conditions.",
+    measure:"Presence or level of rheumatoid factor, depending on the method.",
+    interpretation:"A positive result does not by itself establish rheumatoid arthritis and must be clinically correlated.",
+    preparation:"Usually no special preparation is required."
+  },
+
+  "ASO Titre": {
+    category:"Immunology",
+    what:"ASO Titre measures antibodies produced in response to certain streptococcal bacteria.",
+    why:"It may help provide evidence of a recent streptococcal infection in appropriate clinical situations.",
+    measure:"Antistreptolysin O antibody level.",
+    interpretation:"Results should be considered with symptoms, timing and other clinical findings.",
+    preparation:"Usually no special preparation is required."
+  },
+
+  "Widal Test": {
+    category:"Immunology",
+    what:"Widal testing detects antibodies associated with Salmonella exposure.",
+    why:"It may be used in some settings as part of evaluation for suspected enteric fever.",
+    measure:"Antibody reactions against selected Salmonella antigens.",
+    interpretation:"Interpretation can be affected by previous exposure, vaccination and local background antibody levels. Clinical correlation is important.",
+    preparation:"Usually no special preparation is required."
+  },
+
+  "Dengue Profile": {
+    category:"Immunology",
+    what:"Dengue testing can detect markers associated with dengue infection.",
+    why:"It may be performed when dengue infection is suspected based on symptoms and clinical assessment.",
+    measure:"Depending on the panel, dengue NS1 antigen and/or dengue antibodies.",
+    interpretation:"The usefulness of different markers depends on the stage of illness. Results should be interpreted with symptoms and timing.",
+    preparation:"Usually no special preparation is required."
+  },
+
+  "Malaria Test": {
+    category:"Immunology",
+    what:"Malaria testing looks for evidence of malaria parasites or parasite-related antigens.",
+    why:"It may be performed when malaria is suspected.",
+    measure:"Depending on the method, parasite detection or malaria antigen detection.",
+    interpretation:"A negative result may need clinical correlation, and repeat testing may sometimes be considered by the treating doctor.",
+    preparation:"Usually no special preparation is required."
+  },
+
+  "HBsAg": {
+    category:"Immunology",
+    what:"HBsAg detects hepatitis B surface antigen in blood.",
+    why:"It is commonly used as part of hepatitis B screening and evaluation.",
+    measure:"Presence or absence of hepatitis B surface antigen.",
+    interpretation:"A reactive result requires appropriate clinical evaluation and, when needed, confirmatory or additional testing.",
+    preparation:"Usually no special preparation is required."
+  },
+
+  "HIV Screening": {
+    category:"Immunology",
+    what:"HIV screening tests look for evidence of HIV infection using an approved screening method.",
+    why:"It is used for HIV screening when clinically or otherwise indicated.",
+    measure:"Depending on the assay, HIV antibodies and/or antigen.",
+    interpretation:"Reactive screening results require appropriate confirmatory testing according to established testing algorithms.",
+    preparation:"Usually no special preparation is required."
+  },
+
+  "HCV Screening": {
+    category:"Immunology",
+    what:"HCV screening commonly checks for antibodies associated with hepatitis C virus exposure.",
+    why:"It is used to screen for possible HCV exposure.",
+    measure:"Hepatitis C virus antibodies, depending on the test method.",
+    interpretation:"A reactive antibody result indicates exposure may have occurred and generally requires further evaluation to determine current infection.",
+    preparation:"Usually no special preparation is required."
+  },
+
+
+  "Vitamin D": {
+    category:"Vitamins",
+    what:"Vitamin D testing measures the level of a major circulating form of vitamin D.",
+    why:"It may be ordered when assessing vitamin D status.",
+    measure:"Usually 25-hydroxyvitamin D.",
+    interpretation:"Results are interpreted according to the laboratory's reference range and individual clinical context.",
+    preparation:"Usually no special preparation is required."
+  },
+
+  "Vitamin B12": {
+    category:"Vitamins",
+    what:"Vitamin B12 testing assesses the level of vitamin B12 in the blood.",
+    why:"It may be used when evaluating suspected vitamin B12 deficiency or related symptoms.",
+    measure:"Vitamin B12 concentration.",
+    interpretation:"Results may be considered with blood counts, symptoms and sometimes additional markers.",
+    preparation:"Follow laboratory instructions if other fasting tests are included."
+  },
+
+  "Folate": {
+    category:"Vitamins",
+    what:"Folate is a vitamin important for DNA synthesis and red blood cell production.",
+    why:"It may be tested during evaluation of suspected folate deficiency or certain blood abnormalities.",
+    measure:"Folate concentration in the sample.",
+    interpretation:"Interpretation may be considered alongside vitamin B12 and blood count results.",
+    preparation:"Follow laboratory instructions regarding fasting or supplements."
+  },
+
+  "Ferritin": {
+    category:"Vitamins",
+    what:"Ferritin is a protein that stores iron and is commonly used as an indicator of iron stores.",
+    why:"It may be measured during evaluation of suspected iron deficiency or iron overload.",
+    measure:"Ferritin concentration in blood.",
+    interpretation:"Ferritin can also rise with inflammation, so it should be interpreted together with other iron and inflammatory markers.",
+    preparation:"Usually no special preparation is required."
+  },
+
+
+  "Urine Routine & Microscopy": {
+    category:"Urine",
+    what:"Urine Routine & Microscopy examines physical, chemical and microscopic characteristics of urine.",
+    why:"It can help evaluate urinary tract and kidney-related conditions.",
+    measure:"Depending on the examination, colour, appearance, chemical parameters and microscopic elements.",
+    interpretation:"Findings are interpreted as a pattern and in relation to symptoms and clinical history.",
+    preparation:"A clean-catch midstream urine sample may be requested."
+  },
+
+  "Urine Culture": {
+    category:"Urine",
+    what:"Urine Culture checks whether bacteria or other microorganisms grow from a urine sample.",
+    why:"It may help identify a urinary tract infection and guide treatment.",
+    measure:"Microbial growth and, when applicable, antimicrobial susceptibility.",
+    interpretation:"Results should be interpreted with symptoms and sample quality. Antibiotic susceptibility may help guide treatment decisions.",
+    preparation:"Collect the sample exactly according to laboratory instructions, ideally before antibiotics when clinically appropriate."
+  },
+
+  "Urine Protein": {
+    category:"Urine",
+    what:"Urine Protein checks for protein present in urine.",
+    why:"It may be used as part of kidney and urinary tract assessment.",
+    measure:"Protein concentration or presence depending on the test method.",
+    interpretation:"Temporary protein in urine can occur in some situations; persistent findings may require further evaluation.",
+    preparation:"Follow the laboratory's urine collection instructions."
+  },
+
+  "Urine Pregnancy Test": {
+    category:"Urine",
+    what:"A urine pregnancy test detects human chorionic gonadotropin (hCG).",
+    why:"It is used to check for pregnancy.",
+    measure:"hCG in urine.",
+    interpretation:"A positive result generally indicates hCG has been detected, while very early pregnancy may produce a negative result.",
+    preparation:"Follow the test's collection instructions. First-morning urine may be useful for early testing."
+  },
+
+
+  "Hb Electrophoresis": {
+    category:"Advanced",
+    what:"Haemoglobin Electrophoresis separates different haemoglobin types in a blood sample.",
+    why:"It may be used when evaluating suspected haemoglobin disorders or certain anaemias.",
+    measure:"Different haemoglobin fractions, depending on the method.",
+    interpretation:"The pattern is interpreted with CBC results, age, clinical history and other relevant tests.",
+    preparation:"Usually no special preparation is required."
+  },
+
+  "Thalassemia Screening": {
+    category:"Advanced",
+    what:"Thalassemia screening evaluates laboratory findings that may suggest a thalassemia trait or related haemoglobin disorder.",
+    why:"It may be considered in individuals with certain blood-count patterns or family history.",
+    measure:"Depending on the screening approach, CBC indices, haemoglobin analysis and related parameters.",
+    interpretation:"Screening findings may require additional confirmatory testing and genetic counselling in appropriate cases.",
+    preparation:"Usually no special preparation is required."
+  },
+
+  "ANA": {
+    category:"Advanced",
+    what:"ANA (Antinuclear Antibody) testing detects antibodies directed against components of the cell nucleus.",
+    why:"It may be used during evaluation of certain autoimmune diseases.",
+    measure:"Antinuclear antibodies using the laboratory's specific testing method.",
+    interpretation:"A positive ANA does not by itself diagnose an autoimmune disease. Clinical findings and additional antibody tests may be required.",
+    preparation:"Usually no special preparation is required."
+  },
+
+  "Anti-CCP": {
+    category:"Advanced",
+    what:"Anti-CCP testing detects antibodies associated with rheumatoid arthritis.",
+    why:"It may support evaluation of suspected rheumatoid arthritis in appropriate clinical settings.",
+    measure:"Anti-cyclic citrullinated peptide antibodies.",
+    interpretation:"Results are interpreted together with symptoms, examination and other laboratory findings.",
+    preparation:"Usually no special preparation is required."
+  },
+
+  "D-Dimer": {
+    category:"Advanced",
+    what:"D-Dimer is a blood marker produced when blood clots are broken down.",
+    why:"It may be used in selected clinical situations when evaluating suspected abnormal clot formation.",
+    measure:"D-Dimer concentration.",
+    interpretation:"D-Dimer is not specific for one condition and can be elevated for many reasons. Clinical assessment is essential.",
+    preparation:"Usually no special preparation is required."
+  },
+
+  "PSA": {
+    category:"Advanced",
+    what:"PSA (Prostate-Specific Antigen) is a protein produced by prostate tissue.",
+    why:"It may be used as part of prostate health assessment.",
+    measure:"PSA concentration in blood.",
+    interpretation:"PSA can be influenced by several prostate-related factors. Results should be discussed with the treating doctor.",
+    preparation:"Follow the laboratory or doctor's instructions regarding recent procedures or activities."
+  },
+
+  "CA-125": {
+    category:"Advanced",
+    what:"CA-125 is a blood marker that can be elevated in several conditions affecting the pelvis and abdomen.",
+    why:"It may be used in selected clinical situations, including monitoring certain ovarian conditions.",
+    measure:"CA-125 concentration in blood.",
+    interpretation:"CA-125 is not specific for cancer and must not be interpreted alone.",
+    preparation:"Usually no special preparation is required."
+  },
+
+  "CA 19-9": {
+    category:"Advanced",
+    what:"CA 19-9 is a tumour-associated marker that can be elevated in certain gastrointestinal and other conditions.",
+    why:"It may be used in selected clinical situations, often for monitoring rather than general screening.",
+    measure:"CA 19-9 concentration in blood.",
+    interpretation:"CA 19-9 can increase in non-cancerous conditions as well, so clinical correlation is essential.",
+    preparation:"Usually no special preparation is required."
+  },
+
+  "CEA": {
+    category:"Advanced",
+    what:"CEA (Carcinoembryonic Antigen) is a tumour-associated marker used in selected clinical settings.",
+    why:"It may be used primarily for monitoring certain cancers rather than as a standalone screening test.",
+    measure:"CEA concentration in blood.",
+    interpretation:"CEA can be elevated for reasons other than cancer, so it must be interpreted in clinical context.",
+    preparation:"Usually no special preparation is required."
+  },
+
+  "AFP": {
+    category:"Advanced",
+    what:"AFP (Alpha-Fetoprotein) is a protein produced naturally during fetal development and present at low levels in adults.",
+    why:"It may be used in selected liver and tumour-related evaluations and in certain pregnancy-related assessments.",
+    measure:"AFP concentration in blood.",
+    interpretation:"Interpretation depends strongly on the clinical situation, including whether the patient is pregnant.",
+    preparation:"Usually no special preparation is required."
+  }
 
 };
+
+
+/* =========================================
+   OPEN TEST INTERPRETATION
+========================================= */
+
+function showInterpretation(testName){
+
+  const data = testInfo[testName];
+
+  if(!data){
+
+    alert(
+      'Interpretation information for this test is being updated. Please contact Vcare Diagnostic Lab for details.'
+    );
+
+    return;
+  }
+
+  document.getElementById('modalTitle').textContent =
+    testName;
+
+  document.getElementById('modalCategory').textContent =
+    data.category.toUpperCase() + ' • TEST INFORMATION';
+
+  document.getElementById('modalWhat').textContent =
+    data.what;
+
+  document.getElementById('modalWhy').textContent =
+    data.why;
+
+  document.getElementById('modalMeasure').textContent =
+    data.measure;
+
+  document.getElementById('modalInterpretation').textContent =
+    data.interpretation;
+
+  document.getElementById('modalPreparation').textContent =
+    data.preparation;
+
+
+  const whatsappMessage =
+    `Hi Vcare Diagnostic Lab,%0A%0A` +
+    `I want to enquire about:%0A%0A` +
+    `Test: ${encodeURIComponent(testName)}%0A%0A` +
+    `Please share price, availability and sample collection details.%0A%0A` +
+    `Thank you.`;
+
+  document.getElementById('modalWhatsApp').href =
+    'https://wa.me/918588931258?text=' +
+    whatsappMessage;
+
+
+  document.getElementById('testModal')
+    .classList.add('show');
+
+  document.body.style.overflow = 'hidden';
+
+}
+
+
+/* =========================================
+   CLOSE MODAL
+========================================= */
+
+function closeTestModal(event){
+
+  if(
+    event &&
+    event.target !== document.getElementById('testModal')
+  ){
+    return;
+  }
+
+  document.getElementById('testModal')
+    .classList.remove('show');
+
+  document.body.style.overflow = '';
+
+}
+
+
+/* =========================================
+   ADD INFO BUTTON TO EVERY TEST AUTOMATICALLY
+========================================= */
+
+document.addEventListener('DOMContentLoaded', function(){
+
+  document.querySelectorAll('#testGrid .test')
+    .forEach(test => {
+
+      const nameElement =
+        test.querySelector('.test-name');
+
+      const action =
+        test.querySelector('.test-action');
+
+      if(!nameElement || !action) return;
+
+      const testName =
+        nameElement.textContent.trim();
+
+      const infoButton =
+        document.createElement('button');
+
+      infoButton.className =
+        'test-info-btn';
+
+      infoButton.type = 'button';
+
+      infoButton.innerHTML = 'ⓘ';
+
+      infoButton.title =
+        'View test interpretation';
+
+      infoButton.setAttribute(
+        'aria-label',
+        'View interpretation for ' + testName
+      );
+
+      infoButton.addEventListener(
+        'click',
+        function(e){
+
+          e.preventDefault();
+          e.stopPropagation();
+
+          showInterpretation(testName);
+
+        }
+      );
+
+      action.parentNode.insertBefore(
+        infoButton,
+        action
+      );
+
+    });
+
+});
+
+
+/* =========================================
+   ESC KEY CLOSE
+========================================= */
+
+document.addEventListener('keydown', function(e){
+
+  if(e.key === 'Escape'){
+
+    closeTestModal();
+
+  }
+
+});
+
 </script>
+<!-- PREMIUM TEST INTERPRETATION MODAL -->
+<div class="test-modal" id="testModal" onclick="closeTestModal(event)">
+  <div class="test-modal-box" onclick="event.stopPropagation()">
+
+    <div class="test-modal-header">
+      <small id="modalCategory">DIAGNOSTIC TEST</small>
+      <h2 id="modalTitle">Test Interpretation</h2>
+
+      <button class="test-modal-close"
+              onclick="closeTestModal()"
+              aria-label="Close">
+        ×
+      </button>
+    </div>
+
+    <div class="test-modal-body">
+
+      <div class="interpret-grid">
+
+        <div class="interpret-card full">
+          <h4>🔬 What is this test?</h4>
+          <p id="modalWhat"></p>
+        </div>
+
+        <div class="interpret-card">
+          <h4>🎯 Why is it done?</h4>
+          <p id="modalWhy"></p>
+        </div>
+
+        <div class="interpret-card">
+          <h4>📊 What does it measure?</h4>
+          <p id="modalMeasure"></p>
+        </div>
+
+        <div class="interpret-card">
+          <h4>📋 General interpretation</h4>
+          <p id="modalInterpretation"></p>
+        </div>
+
+        <div class="interpret-card">
+          <h4>🧪 Preparation</h4>
+          <p id="modalPreparation"></p>
+        </div>
+
+      </div>
+
+      <div class="interpret-note">
+        <strong>Important:</strong>
+        Test results should always be interpreted using the reference
+        range provided by the performing laboratory and together with
+        the patient's age, sex, symptoms, medical history and other
+        relevant clinical information. This information is for
+        educational purposes and is not a medical diagnosis.
+      </div>
+
+      <div class="interpret-actions">
+
+        <a id="modalWhatsApp"
+           class="whatsapp-test-btn"
+           href="#"
+           target="_blank">
+          💬 Enquire on WhatsApp
+        </a>
+
+        <button class="interpret-actions close-test-btn"
+                onclick="closeTestModal()">
+          Close
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+</div>
 </body>
 </html>
