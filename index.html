@@ -460,6 +460,297 @@ footer ul{list-style:none;display:grid;gap:8px}
     flex-direction:column;
   }
 }
+/* =========================================
+   VCАRE PREMIUM MEDICAL / BLOOD THEME
+   ========================================= */
+
+:root{
+  --blood:#b91c3c;
+  --blood-dark:#7f1230;
+  --blood-light:#fff1f4;
+  --medical-red:#e63950;
+  --soft-red:#fff7f8;
+}
+
+/* Premium background */
+body{
+  background:
+    radial-gradient(circle at 5% 10%,rgba(230,57,80,.06),transparent 25%),
+    radial-gradient(circle at 95% 35%,rgba(8,127,186,.07),transparent 25%),
+    #f8fafc;
+}
+
+/* Header */
+header{
+  background:rgba(255,255,255,.94);
+  box-shadow:0 5px 25px rgba(8,43,76,.07);
+}
+
+/* Logo becomes medical red + blue */
+.logo{
+  background:linear-gradient(135deg,var(--blood),var(--medical-red),var(--blue));
+  box-shadow:
+    0 8px 22px rgba(185,28,60,.28),
+    0 0 0 5px rgba(185,28,60,.06);
+}
+
+/* Premium buttons */
+.btn-primary{
+  background:linear-gradient(135deg,var(--blood-dark),var(--blood),var(--medical-red));
+  box-shadow:0 12px 28px rgba(185,28,60,.22);
+}
+
+.btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 16px 32px rgba(185,28,60,.28);
+}
+
+/* HERO */
+.hero{
+  position:relative;
+  background:
+    radial-gradient(circle at 85% 20%,rgba(230,57,80,.13),transparent 26%),
+    radial-gradient(circle at 15% 25%,rgba(8,127,186,.10),transparent 25%),
+    linear-gradient(180deg,#ffffff 0%,#fff8f9 48%,#f4fbfd 100%);
+}
+
+/* Medical decorative circles */
+.hero:before{
+  content:"";
+  position:absolute;
+  width:420px;
+  height:420px;
+  right:-180px;
+  top:80px;
+  border:1px solid rgba(185,28,60,.10);
+  border-radius:50%;
+  box-shadow:
+    0 0 0 35px rgba(185,28,60,.025),
+    0 0 0 75px rgba(185,28,60,.018);
+  pointer-events:none;
+}
+
+/* Hero heading */
+h1{
+  text-shadow:0 4px 20px rgba(8,43,76,.05);
+}
+
+h1 span{
+  background:linear-gradient(90deg,var(--blood),var(--medical-red),var(--blue));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent !important;
+}
+
+/* Hero medical card */
+.hero-card{
+  background:
+    radial-gradient(circle at 85% 15%,rgba(255,255,255,.18),transparent 22%),
+    linear-gradient(145deg,#64152b 0%,#a51e3c 38%,#087fba 100%);
+  box-shadow:
+    0 30px 70px rgba(127,18,48,.22),
+    0 12px 35px rgba(8,43,76,.12);
+}
+
+/* Glass effect on dashboard */
+.mock-lab{
+  background:rgba(255,255,255,.96);
+  border:1px solid rgba(255,255,255,.8);
+  box-shadow:
+    0 30px 60px rgba(0,0,0,.18),
+    0 0 0 8px rgba(255,255,255,.08);
+}
+
+/* Blood-style status */
+.status{
+  background:#fff0f3;
+  color:var(--blood);
+}
+
+/* Premium chart */
+.bar{
+  background:linear-gradient(
+    180deg,
+    var(--medical-red),
+    var(--blood),
+    var(--blue)
+  );
+}
+
+/* Section headings */
+.eyebrow{
+  color:var(--blood);
+}
+
+/* Medical service cards */
+.card{
+  position:relative;
+  overflow:hidden;
+}
+
+.card:before{
+  content:"";
+  position:absolute;
+  width:90px;
+  height:90px;
+  right:-35px;
+  top:-35px;
+  border-radius:50%;
+  background:rgba(185,28,60,.045);
+  transition:.3s;
+}
+
+.card:hover:before{
+  transform:scale(1.5);
+}
+
+.card:hover{
+  border-color:rgba(185,28,60,.18);
+}
+
+/* Medical icons */
+.icon{
+  background:linear-gradient(135deg,#fff0f3,#e9f8fb);
+  border:1px solid rgba(185,28,60,.08);
+}
+
+/* Tests section */
+.tests{
+  background:
+    linear-gradient(180deg,#fff 0%,#fff8f9 100%);
+}
+
+/* Test cards */
+.test{
+  background:rgba(255,255,255,.9);
+  border:1px solid #f0dfe3;
+  box-shadow:0 5px 18px rgba(127,18,48,.035);
+}
+
+.test:hover{
+  border-color:rgba(185,28,60,.25);
+  box-shadow:0 14px 32px rgba(127,18,48,.10);
+}
+
+.test span{
+  color:var(--blood);
+}
+
+/* Package section */
+.package{
+  background:
+    radial-gradient(circle at 10% 20%,rgba(230,57,80,.20),transparent 25%),
+    linear-gradient(135deg,#551326,#8f1735 48%,#08698e 100%);
+}
+
+/* Package cards */
+.pack{
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 15px 40px rgba(0,0,0,.12);
+  transition:.25s;
+}
+
+.pack:hover{
+  transform:translateY(-5px);
+  background:rgba(255,255,255,.14);
+}
+
+/* Home collection */
+.collection-art{
+  background:
+    radial-gradient(circle at 30% 30%,rgba(230,57,80,.12),transparent 25%),
+    linear-gradient(145deg,#fff1f4,#e5f5fa);
+  border:1px solid rgba(185,28,60,.08);
+}
+
+/* Blood drop */
+.big-drop{
+  background:
+    radial-gradient(circle at 30% 25%,rgba(255,255,255,.35),transparent 12%),
+    linear-gradient(145deg,#e63950,#b91c3c 55%,#7f1230);
+  box-shadow:
+    0 25px 55px rgba(185,28,60,.28),
+    inset -15px -15px 25px rgba(90,0,20,.15);
+}
+
+/* Floating medical cards */
+.float-card{
+  border:1px solid rgba(185,28,60,.10);
+}
+
+.float-card.one{
+  color:var(--blood);
+}
+
+/* Booking section */
+.booking{
+  background:
+    radial-gradient(circle at 90% 20%,rgba(230,57,80,.08),transparent 25%),
+    #f7fafc;
+}
+
+/* Contact panel */
+.contact-panel{
+  background:
+    radial-gradient(circle at 90% 10%,rgba(230,57,80,.28),transparent 28%),
+    linear-gradient(145deg,#501124,#8f1735 55%,#082b4c);
+  box-shadow:0 25px 55px rgba(80,17,36,.18);
+}
+
+/* Form */
+.form{
+  border:1px solid #f0dfe3;
+}
+
+/* Input focus */
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:var(--blood);
+  box-shadow:0 0 0 4px rgba(185,28,60,.09);
+}
+
+/* Footer */
+footer{
+  background:
+    radial-gradient(circle at 85% 10%,rgba(185,28,60,.18),transparent 25%),
+    #061b2e;
+}
+
+/* Mobile WhatsApp button */
+.mobile-book .btn{
+  background:linear-gradient(135deg,var(--blood-dark),var(--blood));
+  box-shadow:0 12px 30px rgba(185,28,60,.30);
+}
+
+/* Subtle medical pulse */
+@keyframes medicalPulse{
+  0%,100%{
+    box-shadow:0 0 0 0 rgba(185,28,60,.16);
+  }
+  50%{
+    box-shadow:0 0 0 12px rgba(185,28,60,0);
+  }
+}
+
+.badge .dot{
+  background:var(--blood);
+  animation:medicalPulse 2s infinite;
+}
+
+/* Premium hover animation */
+.btn,
+.card,
+.pack,
+.test,
+.float-card{
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease,
+    background .25s ease;
+}
 </style>
 </head>
 <body>
