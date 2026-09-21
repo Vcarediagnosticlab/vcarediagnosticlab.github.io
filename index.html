@@ -958,6 +958,345 @@ footer{
     flex-direction:column;
   }
 }
+/* =========================================================
+   VCare PREMIUM MEDICAL THEME — V2
+   ========================================================= */
+
+:root{
+  --navy:#061b33;
+  --blue:#087fba;
+  --cyan:#18c7d4;
+  --blood:#c6283d;
+  --blood-dark:#941d31;
+  --mint:#eafaf8;
+  --ink:#102033;
+  --muted:#657789;
+  --white:#ffffff;
+  --line:#e4ebf1;
+  --shadow:0 22px 70px rgba(6,27,51,.14);
+  --radius:24px;
+}
+
+/* BODY */
+body{
+  background:
+    radial-gradient(circle at 10% 10%,rgba(198,40,61,.035),transparent 25%),
+    radial-gradient(circle at 90% 30%,rgba(24,199,212,.05),transparent 25%),
+    #f7fafc;
+}
+
+/* HEADER */
+header{
+  background:rgba(255,255,255,.82);
+  box-shadow:0 8px 35px rgba(6,27,51,.07);
+}
+
+.logo{
+  background:
+    linear-gradient(145deg,#c6283d 0%,#e4475c 42%,#087fba 100%);
+  box-shadow:
+    0 8px 24px rgba(198,40,61,.25),
+    0 4px 12px rgba(8,127,186,.18);
+}
+
+/* PREMIUM BUTTON */
+.btn-primary{
+  background:
+    linear-gradient(135deg,#071d35,#0b527b);
+  box-shadow:
+    0 12px 28px rgba(6,27,51,.22);
+}
+
+.btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:
+    0 16px 35px rgba(6,27,51,.28);
+}
+
+.btn-light:hover{
+  border-color:#c6283d;
+  color:#c6283d;
+}
+
+/* HERO */
+.hero{
+  position:relative;
+  background:
+    radial-gradient(circle at 78% 18%,rgba(198,40,61,.13),transparent 22%),
+    radial-gradient(circle at 92% 45%,rgba(24,199,212,.16),transparent 28%),
+    radial-gradient(circle at 8% 30%,rgba(8,127,186,.09),transparent 25%),
+    linear-gradient(180deg,#ffffff 0%,#f1f9fc 100%);
+}
+
+/* medical decorative glow */
+.hero:before{
+  content:"";
+  position:absolute;
+  width:430px;
+  height:430px;
+  right:-180px;
+  top:80px;
+  border-radius:50%;
+  border:1px solid rgba(198,40,61,.13);
+  box-shadow:
+    0 0 0 35px rgba(198,40,61,.025),
+    0 0 0 70px rgba(8,127,186,.018);
+  pointer-events:none;
+}
+
+/* HERO HEADING */
+h1{
+  text-shadow:0 3px 25px rgba(6,27,51,.06);
+}
+
+h1 span{
+  background:
+    linear-gradient(90deg,#087fba,#c6283d);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent !important;
+}
+
+/* BADGE */
+.badge{
+  background:linear-gradient(135deg,#fff0f2,#eafaff);
+  border-color:#f1c9d0;
+  color:#9b2436;
+}
+
+.dot{
+  background:#c6283d;
+  box-shadow:0 0 0 5px rgba(198,40,61,.12);
+}
+
+/* HERO MEDICAL PANEL */
+.hero-card{
+  background:
+    radial-gradient(circle at 80% 20%,rgba(198,40,61,.38),transparent 25%),
+    radial-gradient(circle at 20% 80%,rgba(24,199,212,.25),transparent 30%),
+    linear-gradient(145deg,#04182e,#073e63 55%,#087fba);
+  box-shadow:
+    0 30px 80px rgba(6,27,51,.25);
+}
+
+/* BLOOD DROP */
+.hero-card:before{
+  width:230px;
+  height:230px;
+  border:none;
+  background:
+    radial-gradient(circle at 35% 30%,rgba(255,255,255,.28),transparent 18%),
+    linear-gradient(145deg,#e4475c,#a91f36);
+  border-radius:55% 45% 55% 45%;
+  transform:rotate(45deg);
+  right:-85px;
+  top:-85px;
+  opacity:.7;
+}
+
+/* SECOND DECORATION */
+.hero-card:after{
+  width:180px;
+  height:180px;
+  border:1px solid rgba(255,255,255,.2);
+  box-shadow:0 0 0 25px rgba(255,255,255,.025);
+}
+
+/* DASHBOARD */
+.mock-lab{
+  background:rgba(255,255,255,.97);
+  box-shadow:
+    0 30px 70px rgba(0,0,0,.25);
+}
+
+.status{
+  background:#fff0f2;
+  color:#b02239;
+}
+
+/* MEDICAL DATA BARS */
+.bar{
+  background:
+    linear-gradient(
+      180deg,
+      #c6283d 0%,
+      #087fba 65%,
+      #18c7d4 100%
+    );
+}
+
+/* SECTION HEADINGS */
+.eyebrow{
+  color:#c6283d;
+}
+
+h2{
+  color:#061b33;
+}
+
+/* SERVICE CARDS */
+.card{
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(8,43,76,.08);
+  box-shadow:
+    0 10px 35px rgba(6,27,51,.055);
+}
+
+.card:after{
+  content:"";
+  position:absolute;
+  width:100px;
+  height:100px;
+  right:-50px;
+  top:-50px;
+  border-radius:50%;
+  background:rgba(198,40,61,.055);
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-7px);
+  border-color:rgba(198,40,61,.18);
+  box-shadow:
+    0 25px 55px rgba(6,27,51,.13);
+}
+
+.card:hover:after{
+  transform:scale(1.5);
+}
+
+.icon{
+  background:
+    linear-gradient(145deg,#fff0f2,#eafaff);
+  border:1px solid #f2d5da;
+}
+
+/* TEST SECTION */
+.tests{
+  background:
+    linear-gradient(180deg,#ffffff,#f5fafc);
+}
+
+.test{
+  background:rgba(255,255,255,.9);
+  box-shadow:0 7px 22px rgba(6,27,51,.035);
+}
+
+.test:hover{
+  border-color:rgba(198,40,61,.28);
+  box-shadow:
+    0 14px 35px rgba(6,27,51,.11);
+}
+
+.test span{
+  color:#c6283d;
+}
+
+/* PACKAGE SECTION */
+.package{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 85% 15%,rgba(198,40,61,.30),transparent 24%),
+    linear-gradient(135deg,#04182e,#063a5e 55%,#087fba);
+}
+
+.pack{
+  transition:.25s;
+}
+
+.pack:hover{
+  transform:translateY(-6px);
+  background:rgba(255,255,255,.13);
+  border-color:rgba(255,255,255,.28);
+  box-shadow:0 20px 45px rgba(0,0,0,.15);
+}
+
+.pack li:before{
+  color:#ff6679;
+}
+
+/* HOME COLLECTION */
+.collection-art{
+  background:
+    radial-gradient(circle at 70% 25%,rgba(198,40,61,.18),transparent 20%),
+    linear-gradient(145deg,#eafafa,#e4eef8);
+  box-shadow:var(--shadow);
+}
+
+.big-drop{
+  background:
+    radial-gradient(circle at 30% 25%,rgba(255,255,255,.35),transparent 18%),
+    linear-gradient(145deg,#e4475c,#c6283d 48%,#087fba);
+  box-shadow:
+    0 25px 50px rgba(198,40,61,.25);
+}
+
+/* CONTACT */
+.contact-panel{
+  background:
+    radial-gradient(circle at 90% 15%,rgba(198,40,61,.32),transparent 25%),
+    linear-gradient(145deg,#04182e,#073e63);
+  box-shadow:var(--shadow);
+}
+
+.form{
+  box-shadow:
+    0 25px 65px rgba(6,27,51,.12);
+}
+
+/* FORM FOCUS */
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:#c6283d;
+  box-shadow:0 0 0 4px rgba(198,40,61,.09);
+}
+
+/* FOOTER */
+footer{
+  background:
+    radial-gradient(circle at 85% 20%,rgba(198,40,61,.18),transparent 25%),
+    #031528;
+}
+
+/* MOBILE BOOK BUTTON */
+.mobile-book .btn{
+  background:
+    linear-gradient(135deg,#c6283d,#941d31);
+  box-shadow:
+    0 14px 35px rgba(198,40,61,.3);
+}
+
+/* PREMIUM SCROLLBAR */
+::-webkit-scrollbar{
+  width:9px;
+}
+
+::-webkit-scrollbar-track{
+  background:#edf3f6;
+}
+
+::-webkit-scrollbar-thumb{
+  background:
+    linear-gradient(#c6283d,#087fba);
+  border-radius:20px;
+}
+
+/* MOBILE */
+@media(max-width:560px){
+  .hero:before{
+    width:260px;
+    height:260px;
+    right:-150px;
+    top:110px;
+  }
+
+  .hero-card{
+    box-shadow:0 22px 55px rgba(6,27,51,.22);
+  }
+}
 </style>
 </head>
 <body>
