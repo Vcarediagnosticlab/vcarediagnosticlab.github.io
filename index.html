@@ -1533,13 +1533,39 @@ h2{
     padding:18px;
   }
 }  
+/* ===== VCare Original Logo ===== */
+
+.brand-logo{
+  width:185px;
+  height:58px;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+}
+
+.brand-logo img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+}
+
+/* Mobile */
+@media(max-width:560px){
+  .brand-logo{
+    width:145px;
+    height:52px;
+  }
+}  
 </style>
 </head>
 <body>
 <header>
   <div class="container nav">
     <a class="brand" href="#">
-      <div class="logo">V</div>
+      <div class="brand-logo">
+  <img src="vcare-logo.png" alt="Vcare Diagnostic Lab">
+</div>
       <div>Vcare Diagnostic Lab<small>Trusted • Accurate • Caring</small></div>
     </a>
     <nav class="links">
