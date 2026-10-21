@@ -1,915 +1,500 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#092b36">
-<meta name="description" content="Vcare Diagnostic Lab, New Delhi. Explore laboratory tests, health checkups and convenient home sample collection. Contact us to book your test.">
-<title>Vcare Diagnostic Lab | Care That Flows</title>
-
+<meta name="description" content="Vcare Diagnostic Lab - Reliable laboratory testing, health packages and convenient home sample collection in New Delhi.">
+<meta name="theme-color" content="#071f35">
+<title>Vcare Diagnostic Lab | Trusted Diagnostic Testing</title>
 <style>
-:root {
-  --ink: #102f38;
-  --deep: #092b36;
-  --teal: #168b88;
-  --mint: #b8e7d9;
-  --paper: #f5f5ef;
-  --muted: #6a7f80;
-  --line: rgba(16,47,56,.12);
-  --white: #fffefa;
-  --radius: 25px;
+:root{
+  --navy:#071f35;
+  --navy2:#0b304a;
+  --blue:#087fba;
+  --cyan:#16b9c8;
+  --mint:#a8f0df;
+  --paper:#f4fbfc;
+  --ink:#14334a;
+  --muted:#5d7688;
+  --line:rgba(15,65,90,.13);
+  --white:#fff;
+  --shadow:0 18px 55px rgba(5,35,58,.13);
 }
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 100px; }
-body {
-  margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  line-height: 1.6;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:95px}
+body{
+  margin:0;color:var(--ink);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--paper);line-height:1.6;overflow-x:hidden
 }
-a { color: inherit; text-decoration: none; }
-button, input { font: inherit; }
-button, a { -webkit-tap-highlight-color: transparent; }
-img { max-width: 100%; }
-.wrap { width: min(1160px, calc(100% - 40px)); margin: auto; }
-.eyebrow {
-  display: inline-flex; align-items: center; gap: 9px;
-  font-size: 11px; font-weight: 800; letter-spacing: 2px;
-  text-transform: uppercase; color: var(--teal);
-}
-.eyebrow:before {
-  content: ""; width: 23px; height: 2px; background: currentColor;
-}
-h1, h2, h3, p { margin-top: 0; }
-h1, h2, h3 { line-height: 1.12; letter-spacing: -1.5px; }
-h2 { font-size: clamp(32px, 4vw, 48px); margin-bottom: 18px; }
-.section { padding: 92px 0; }
-.section-head { max-width: 690px; margin-bottom: 36px; }
-.section-head p { color: var(--muted); max-width: 580px; }
-.btn {
-  display: inline-flex; justify-content: center; align-items: center;
-  gap: 10px; border: 1px solid transparent; border-radius: 100px;
-  padding: 14px 22px; font-size: 13px; font-weight: 800;
-  transition: transform .25s, background .25s, box-shadow .25s;
-  cursor: pointer;
-}
-.btn:hover { transform: translateY(-3px); }
-.btn-dark { background: var(--deep); color: white; box-shadow: 0 9px 24px #092b3620; }
-.btn-dark:hover { background: var(--teal); }
-.btn-light { background: white; border-color: var(--line); }
-.btn-light:hover { box-shadow: 0 8px 24px #092b3610; }
-.btn-mint { background: var(--mint); color: var(--deep); }
-.small { font-size: 12px; color: var(--muted); }
-
-/* HEADER */
-header {
-  position: sticky; top: 0; z-index: 50;
-  background: rgba(245,245,239,.88);
-  border-bottom: 1px solid rgba(16,47,56,.08);
-  backdrop-filter: blur(18px);
-}
-.nav {
-  min-height: 78px; display: flex; align-items: center;
-  justify-content: space-between; gap: 24px;
-}
-.brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
-.logo {
-  width: 46px; height: 46px; flex-shrink: 0;
-  border-radius: 15px; display: grid; place-items: center;
-  background: #d9f0e8; overflow: hidden;
-}
-.logo img { width: 100%; height: 100%; object-fit: contain; }
-.brand-name { font-size: 15px; font-weight: 900; line-height: 1.25; }
-.brand-tag { display: block; font-size: 10px; letter-spacing: 1px; color: var(--muted); margin-top: 3px; }
-.nav-links { display: flex; align-items: center; gap: 25px; }
-.nav-links a { font-size: 12px; font-weight: 750; color: #496267; }
-.nav-links a:hover { color: var(--teal); }
-.nav-actions { display: flex; gap: 9px; align-items: center; }
-.menu-toggle {
-  display: none; border: 1px solid var(--line); background: white;
-  border-radius: 12px; padding: 9px 13px; color: var(--ink);
-}
-
-/* HERO: DUSTY AQUA + FLOWING WATER */
-.hero {
-  min-height: 680px; position: relative; overflow: hidden;
-  display: flex; align-items: center; color: white;
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+button,a{ -webkit-tap-highlight-color:transparent }
+.container{width:min(1160px,calc(100% - 40px));margin-inline:auto}
+.ambient{
+  position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden;
   background:
-    radial-gradient(ellipse at 80% 20%, #307b78 0, transparent 38%),
-    radial-gradient(ellipse at 8% 90%, #1c686a 0, transparent 38%),
-    linear-gradient(125deg, #082c38 0%, #10454c 54%, #193f49 100%);
+    radial-gradient(ellipse at 10% 12%,rgba(22,185,200,.13),transparent 34%),
+    radial-gradient(ellipse at 88% 38%,rgba(8,127,186,.10),transparent 33%),
+    radial-gradient(ellipse at 50% 100%,rgba(168,240,223,.24),transparent 40%),
+    linear-gradient(145deg,#f7fcfd 0%,#eef8fa 48%,#f7fbff 100%)
 }
-.hero:before, .hero:after {
-  content: ""; position: absolute; pointer-events: none;
-  width: 780px; height: 780px; border-radius: 42%;
-  border: 1px solid #c2f4e21e;
-  background: linear-gradient(140deg, #b9e9d912, #b9e9d902);
+.ambient:before,.ambient:after{
+  content:"";position:absolute;width:70vw;height:70vw;min-width:420px;min-height:420px;
+  border:1px solid rgba(22,185,200,.14);border-radius:44% 56% 60% 40%;
+  background:linear-gradient(135deg,rgba(22,185,200,.045),rgba(8,127,186,.025));
+  animation:waterDrift 24s ease-in-out infinite alternate
 }
-.hero:before { right: -250px; top: -350px; transform: rotate(25deg); animation: drift 18s ease-in-out infinite alternate; }
-.hero:after { left: -420px; bottom: -610px; width: 950px; height: 950px; animation: drift 22s ease-in-out infinite alternate-reverse; }
-.flow {
-  position: absolute; left: -10%; width: 120%; height: 180px;
-  bottom: -55px; border-radius: 48% 52% 0 0;
-  background: linear-gradient(180deg, #a8e6d51a, #9bdcc91c);
-  border-top: 1px solid #c2f4e23d;
-  transform: rotate(-4deg); animation: wave 11s ease-in-out infinite alternate;
+.ambient:before{top:-28vw;left:-18vw}
+.ambient:after{right:-28vw;bottom:-35vw;animation-delay:-10s;animation-duration:30s}
+@keyframes waterDrift{0%{transform:rotate(0deg) translate(0,0) scale(1);border-radius:44% 56% 60% 40%}100%{transform:rotate(22deg) translate(5vw,3vw) scale(1.1);border-radius:58% 42% 38% 62%}}
+.particles{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.particle{position:absolute;bottom:-35px;width:7px;height:7px;border-radius:50%;background:rgba(22,185,200,.22);box-shadow:0 0 18px rgba(22,185,200,.18);animation:floatUp linear infinite}
+.particle:nth-child(1){left:8%;animation-duration:19s;animation-delay:-8s}
+.particle:nth-child(2){left:22%;width:4px;height:4px;animation-duration:24s;animation-delay:-13s}
+.particle:nth-child(3){left:39%;animation-duration:21s;animation-delay:-4s}
+.particle:nth-child(4){left:56%;width:5px;height:5px;animation-duration:27s;animation-delay:-17s}
+.particle:nth-child(5){left:71%;animation-duration:20s;animation-delay:-11s}
+.particle:nth-child(6){left:88%;width:4px;height:4px;animation-duration:25s;animation-delay:-6s}
+@keyframes floatUp{0%{transform:translateY(0) translateX(0);opacity:0}10%{opacity:.8}90%{opacity:.5}100%{transform:translateY(-115vh) translateX(45px);opacity:0}}
+header{
+  position:sticky;top:0;z-index:50;background:rgba(250,254,255,.83);
+  backdrop-filter:blur(18px);border-bottom:1px solid rgba(15,65,90,.09)
 }
-.flow.two {
-  bottom: -92px; opacity: .65; transform: rotate(3deg);
-  animation-duration: 15s; background: #9bdcc90e;
+.nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.brand img{width:48px;height:48px;object-fit:contain;border-radius:13px}
+.brand-fallback{display:none;width:48px;height:48px;align-items:center;justify-content:center;border-radius:14px;color:white;font-size:25px;font-weight:900;background:linear-gradient(135deg,var(--blue),var(--cyan))}
+.brand-name{font-weight:850;color:var(--navy);letter-spacing:-.45px;font-size:17px;line-height:1.2}
+.brand-tag{font-size:11px;color:var(--muted);letter-spacing:.5px;margin-top:4px}
+.navlinks{display:flex;align-items:center;gap:23px;font-size:13px;font-weight:700;color:#345469}
+.navlinks a:hover{color:var(--blue)}
+.nav-actions{display:flex;align-items:center;gap:9px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:13px;padding:12px 17px;font-weight:800;font-size:13px;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{color:#fff;background:linear-gradient(135deg,var(--blue),#0ba8bd);box-shadow:0 9px 22px rgba(8,127,186,.2)}
+.btn-outline{border:1px solid rgba(8,127,186,.23);background:rgba(255,255,255,.72);color:var(--navy)}
+.menu-toggle{display:none;background:white;border:1px solid var(--line);border-radius:12px;padding:9px 12px;color:var(--navy);font-weight:800}
+.hero{padding:72px 0 62px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.06fr .94fr;align-items:center;gap:54px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(22,185,200,.24);background:rgba(255,255,255,.68);padding:7px 12px;border-radius:99px;color:#087a93;font-size:11px;font-weight:850;letter-spacing:.5px}
+.live-dot{width:7px;height:7px;background:#20b89d;border-radius:50%;box-shadow:0 0 0 5px rgba(32,184,157,.11)}
+h1{font-size:clamp(42px,5.2vw,68px);line-height:1.03;letter-spacing:-2.7px;color:var(--navy);margin:22px 0}
+.gradient-text{background:linear-gradient(100deg,var(--blue),#0aaeb4 75%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-copy{font-size:16px;max-width:550px;color:#526e81;line-height:1.85}
+.hero-buttons{display:flex;flex-wrap:wrap;gap:12px;margin:27px 0}
+.trust-row{display:flex;flex-wrap:wrap;gap:17px;color:#456477;font-size:12px;font-weight:750}
+.trust-row span{display:flex;align-items:center;gap:7px}
+.check{display:inline-flex;width:19px;height:19px;align-items:center;justify-content:center;border-radius:50%;background:#ddf8f0;color:#07876f;font-size:12px}
+.hero-visual{position:relative;min-height:410px;display:flex;align-items:center;justify-content:center}
+.orbit{position:absolute;width:min(100%,410px);aspect-ratio:1;border-radius:50%;border:1px solid rgba(22,185,200,.22);background:radial-gradient(circle,rgba(255,255,255,.8),rgba(22,185,200,.045) 60%,transparent 70%);animation:orbitPulse 6s ease-in-out infinite}
+.orbit:before,.orbit:after{content:"";position:absolute;border:1px solid rgba(8,127,186,.12);border-radius:50%;inset:35px;transform:rotate(30deg) scaleX(1.35)}
+.orbit:after{inset:75px;transform:rotate(-35deg) scaleX(1.45)}
+@keyframes orbitPulse{50%{transform:scale(1.035);opacity:.75}}
+.dashboard{position:relative;width:min(100%,360px);padding:25px;border:1px solid rgba(255,255,255,.8);border-radius:28px;background:rgba(255,255,255,.78);backdrop-filter:blur(20px);box-shadow:0 28px 70px rgba(7,49,76,.16);animation:cardFloat 7s ease-in-out infinite}
+@keyframes cardFloat{50%{transform:translateY(-9px)}}
+.dash-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.dash-title{font-size:13px;font-weight:850;color:var(--navy)}
+.status{font-size:10px;font-weight:800;padding:6px 9px;border-radius:99px;background:#e3faf2;color:#087c69}
+.dash-sub{font-size:12px;color:var(--muted);margin:5px 0 18px}
+.health-icon{height:145px;border-radius:20px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#e2fbfa,#e9f2ff)}
+.health-icon:before,.health-icon:after{content:"";position:absolute;width:210px;height:210px;border-radius:45%;border:1px solid rgba(8,127,186,.15);animation:waterDrift 18s linear infinite alternate}
+.health-icon:after{width:160px;height:160px;animation-delay:-5s}
+.med-cross{position:relative;width:73px;height:73px;border-radius:23px;background:linear-gradient(135deg,var(--blue),var(--cyan));box-shadow:0 14px 28px rgba(8,127,186,.25);display:grid;place-items:center;color:white;font-size:50px;font-weight:300}
+.dash-metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.metric{background:#f4fafc;border:1px solid #e4f0f4;border-radius:15px;padding:12px}
+.metric b{display:block;color:var(--navy);font-size:13px}
+.metric span{font-size:10px;color:var(--muted)}
+.float-chip{position:absolute;display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.9);box-shadow:var(--shadow);border-radius:15px;padding:12px 14px;font-size:11px;font-weight:800;color:var(--navy);animation:cardFloat 6s ease-in-out infinite}
+.float-chip span{display:grid;place-items:center;width:31px;height:31px;border-radius:10px;background:#ddf8f5;font-size:16px}
+.chip-one{left:-3px;top:55px}.chip-two{right:-3px;bottom:52px;animation-delay:-3s}
+.section{padding:70px 0;position:relative}
+.section-white{background:rgba(255,255,255,.52);border-block:1px solid rgba(15,65,90,.055)}
+.section-head{text-align:center;max-width:690px;margin:0 auto 35px}
+.kicker{text-transform:uppercase;font-size:11px;font-weight:900;letter-spacing:1.8px;color:#0794a7}
+h2{font-size:clamp(28px,3.4vw,42px);line-height:1.15;letter-spacing:-1.2px;color:var(--navy);margin:10px 0 13px}
+.section-head p{color:var(--muted);font-size:14px;margin:0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.service-card{border:1px solid rgba(15,65,90,.09);background:rgba(255,255,255,.83);padding:23px;border-radius:22px;box-shadow:0 9px 28px rgba(7,49,76,.045);transition:transform .25s,border .25s}
+.service-card:hover{transform:translateY(-5px);border-color:rgba(22,185,200,.4)}
+.service-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:15px;background:linear-gradient(135deg,#e0f9f8,#e9f1ff);font-size:23px;margin-bottom:17px}
+.service-card h3{margin:0 0 7px;font-size:16px;color:var(--navy)}
+.service-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.75}
+.test-area{display:grid;grid-template-columns:260px 1fr;gap:25px;align-items:start}
+.test-sidebar{background:rgba(255,255,255,.78);border:1px solid var(--line);padding:18px;border-radius:22px;position:sticky;top:100px}
+.test-sidebar h3{font-size:14px;color:var(--navy);margin:0 0 12px}
+.test-search{width:100%;padding:12px 13px;border:1px solid #dcebf0;border-radius:12px;background:white;outline:none;margin-bottom:14px;font-size:13px}
+.test-search:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(22,185,200,.1)}
+.category-list{display:grid;gap:7px}
+.category-btn{width:100%;text-align:left;display:flex;justify-content:space-between;gap:8px;align-items:center;padding:11px 12px;border:1px solid transparent;border-radius:11px;background:transparent;color:#476477;font-size:12px;font-weight:800;cursor:pointer}
+.category-btn:hover,.category-btn.active{background:#e5f8f8;color:#087c93;border-color:#c9f0ed}
+.category-btn small{font-size:10px;color:#7190a0}
+.test-main{min-width:0}
+.test-main-top{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:0 0 15px}
+.test-main-top h3{font-size:18px;color:var(--navy);margin:0}
+.test-count{font-size:11px;color:var(--muted)}
+.test-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.test-card{padding:17px;border-radius:17px;border:1px solid rgba(15,65,90,.09);background:rgba(255,255,255,.88);min-width:0;transition:transform .2s,border .2s}
+.test-card:hover{transform:translateY(-3px);border-color:rgba(22,185,200,.42)}
+.test-card h4{margin:0 0 5px;font-size:13px;line-height:1.5;color:var(--navy)}
+.test-card p{margin:0;color:var(--muted);font-size:11px;line-height:1.65}
+.test-tag{display:inline-block;font-size:9px;font-weight:850;letter-spacing:.5px;text-transform:uppercase;color:#07849a;background:#e8f9f8;border-radius:99px;padding:4px 7px;margin-bottom:9px}
+.no-results{grid-column:1/-1;background:#fff;border:1px dashed #c9dfe6;padding:28px;border-radius:15px;color:var(--muted);text-align:center;font-size:13px}
+.disclaimer{font-size:11px;color:#6d8290;margin-top:17px;line-height:1.7}
+.package-card{position:relative;overflow:hidden}
+.package-card:after{content:"";position:absolute;width:130px;height:130px;right:-60px;top:-60px;border-radius:50%;background:rgba(22,185,200,.08)}
+.package-label{font-size:10px;color:#07869a;font-weight:900;letter-spacing:1px;text-transform:uppercase}
+.package-card ul{padding-left:18px;color:var(--muted);font-size:12px;line-height:1.9;margin-bottom:20px}
+.home-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.home-panel{padding:30px;border-radius:28px;background:linear-gradient(135deg,#082b4c,#0b6278);color:white;box-shadow:0 25px 55px rgba(7,49,76,.18);position:relative;overflow:hidden}
+.home-panel:before{content:"";position:absolute;width:260px;height:260px;border:1px solid rgba(255,255,255,.12);border-radius:50%;right:-80px;top:-100px;box-shadow:0 0 0 35px rgba(255,255,255,.025),0 0 0 70px rgba(255,255,255,.02)}
+.home-panel h3{position:relative;font-size:25px;line-height:1.2;margin:15px 0}
+.home-panel p{position:relative;color:#d4eaf0;font-size:13px;line-height:1.8}
+.home-points{position:relative;display:grid;gap:12px;margin-top:22px}
+.home-points span{display:flex;gap:10px;align-items:center;font-size:12px;font-weight:750}
+.home-copy h2{margin-top:12px}
+.home-copy p{font-size:14px;color:var(--muted);line-height:1.85}
+.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:25px;align-items:start}
+.contact-info{padding:27px;border-radius:24px;background:linear-gradient(150deg,#092b47,#0a5870);color:white}
+.contact-info h3{margin:0 0 9px;font-size:23px}
+.contact-info p{font-size:13px;color:#d2e6ec;line-height:1.8}
+.contact-line{display:flex;gap:11px;align-items:center;margin-top:19px;font-size:13px;font-weight:750}
+.contact-line .service-icon{margin:0;background:rgba(255,255,255,.12);color:white;width:40px;height:40px}
+.booking-form{background:rgba(255,255,255,.88);border:1px solid var(--line);border-radius:24px;padding:27px;box-shadow:var(--shadow)}
+.booking-form h3{margin:0 0 5px;color:var(--navy);font-size:20px}
+.booking-form>p{margin:0 0 20px;font-size:12px;color:var(--muted)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.field{display:grid;gap:6px}
+.field.full{grid-column:1/-1}
+.field label{font-size:11px;font-weight:850;color:#385a6e}
+.field input,.field select,.field textarea{width:100%;border:1px solid #dcebf0;border-radius:11px;padding:12px;background:#fbfeff;outline:none;font-size:12px;color:var(--ink)}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(22,185,200,.1)}
+.field textarea{min-height:90px;resize:vertical}
+.form-note{font-size:10px;color:#6d8290;line-height:1.65;margin:13px 0}
+footer{background:#061d31;color:#d6e9ee;padding:30px 0 90px}
+.footer-row{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:12px}
+.footer-brand img{width:42px;height:42px;object-fit:contain;background:white;border-radius:10px}
+.footer-brand b{display:block;color:white;font-size:14px}
+.footer-brand small{display:block;color:#9ebdc7;font-size:11px}
+.footer-links{display:flex;gap:17px;flex-wrap:wrap;font-size:11px;color:#c1d8df}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:24px;padding-top:17px;color:#91b0bb;font-size:10px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.mobile-cta{display:none}
+@media(max-width:980px){
+  .navlinks{gap:13px}.navlinks a{font-size:12px}.hero-grid{gap:25px}.test-area{grid-template-columns:220px 1fr}
+  .cards{grid-template-columns:repeat(2,1fr)}
 }
-.bubble {
-  position: absolute; bottom: -50px; width: 11px; height: 11px;
-  border: 1px solid #d4fff17d; border-radius: 50%;
-  background: #c8fff022; animation: rise 13s linear infinite;
+@media(max-width:760px){
+  .container{width:min(100% - 28px,560px)}
+  .nav{min-height:69px}.brand img,.brand-fallback{width:42px;height:42px}.brand-name{font-size:14px}.brand-tag{font-size:9px}
+  .menu-toggle{display:block}.nav-actions .btn-outline{display:none}
+  .navlinks{display:none;position:absolute;top:69px;left:0;right:0;background:rgba(250,254,255,.97);backdrop-filter:blur(15px);padding:15px 20px 20px;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}
+  .navlinks.open{display:flex}.navlinks a{padding:12px 5px;border-bottom:1px solid rgba(15,65,90,.07);font-size:13px}
+  .hero{padding:47px 0 45px}.hero-grid{grid-template-columns:1fr;gap:15px}h1{font-size:48px;letter-spacing:-2px;margin:17px 0}
+  .hero-copy{font-size:14px}.hero-visual{min-height:350px}.dashboard{width:min(83%,340px);padding:20px}.orbit{width:320px}.chip-one{left:0;top:42px}.chip-two{right:0;bottom:38px}
+  .section{padding:54px 0}.cards{grid-template-columns:1fr 1fr;gap:11px}.service-card{padding:17px;border-radius:18px}.service-icon{width:42px;height:42px;font-size:20px;margin-bottom:12px}
+  .test-area{grid-template-columns:1fr;gap:15px}.test-sidebar{position:static;padding:14px}.category-list{display:flex;overflow-x:auto;padding-bottom:3px;gap:7px}.category-btn{width:auto;min-width:max-content;white-space:nowrap}
+  .test-grid{grid-template-columns:1fr 1fr}.home-grid,.contact-grid{grid-template-columns:1fr;gap:20px}
+  .home-panel{padding:24px}.booking-form,.contact-info{padding:22px}
+  .mobile-cta{position:fixed;z-index:60;bottom:0;left:0;right:0;display:flex;gap:9px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(250,254,255,.92);backdrop-filter:blur(15px);border-top:1px solid var(--line)}
+  .mobile-cta .btn{flex:1;padding:12px 8px;font-size:12px}
 }
-.b1 { left: 12%; animation-delay: 1s; }
-.b2 { left: 30%; width: 6px; height: 6px; animation-delay: 5s; animation-duration: 17s; }
-.b3 { left: 61%; width: 15px; height: 15px; animation-delay: 3s; animation-duration: 16s; }
-.b4 { left: 82%; width: 8px; height: 8px; animation-delay: 7s; }
-.b5 { left: 92%; width: 5px; height: 5px; animation-delay: 2s; animation-duration: 18s; }
-.hero-inner {
-  position: relative; z-index: 2; display: grid;
-  grid-template-columns: 1.15fr .85fr; gap: 55px;
-  align-items: center; padding: 86px 0 118px;
+@media(max-width:420px){
+  .cards{grid-template-columns:1fr}.test-grid{grid-template-columns:1fr}
+  h1{font-size:42px}.hero-visual{min-height:320px}.float-chip{font-size:10px;padding:9px}.chip-one{left:-4px}.chip-two{right:-4px}
+  .form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.trust-row{gap:10px}
 }
-.hero .eyebrow { color: #b5ead8; }
-.hero h1 {
-  font-size: clamp(46px, 6.5vw, 78px); letter-spacing: -4px;
-  line-height: .99; max-width: 680px; margin: 23px 0;
-}
-.hero h1 em { font-style: normal; color: #b5ead8; }
-.hero-copy { color: #d1e4df; font-size: 16px; max-width: 525px; line-height: 1.85; }
-.hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-.hero .btn-dark { background: #b9e8d8; color: var(--deep); }
-.hero .btn-light { background: #ffffff0c; border-color: #ffffff36; color: white; }
-.hero .btn-light:hover { background: #ffffff18; }
-.hero-note { display: flex; flex-wrap: wrap; gap: 19px; margin-top: 32px; color: #d4e6e0; font-size: 11px; }
-.hero-note span { display: inline-flex; align-items: center; gap: 7px; }
-.hero-note span:before { content: "✳"; color: #b5ead8; }
-
-/* FLOATING DASHBOARD CARD */
-.visual { position: relative; min-height: 410px; display: grid; place-items: center; }
-.orbit {
-  position: absolute; width: 340px; height: 340px; border-radius: 50%;
-  border: 1px solid #d6fff124; box-shadow: 0 0 80px #a0e7d510;
-}
-.orbit:before, .orbit:after {
-  content: ""; position: absolute; border: 1px solid #d6fff11a;
-  border-radius: 50%; inset: 25px;
-}
-.orbit:after { inset: 60px; }
-.orbit-dot {
-  position: absolute; top: 37px; right: 42px; width: 12px; height: 12px;
-  border-radius: 50%; background: #b7ecd8; box-shadow: 0 0 22px #b7ecd8;
-}
-.dash-card {
-  position: relative; z-index: 2; width: min(100%, 340px);
-  padding: 25px; border-radius: 27px; border: 1px solid #ffffff3b;
-  background: linear-gradient(145deg, #ffffff1d, #ffffff08);
-  box-shadow: 0 35px 90px #001b2450; backdrop-filter: blur(20px);
-  animation: float 6s ease-in-out infinite;
-}
-.dash-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-.dash-title { font-size: 12px; font-weight: 800; letter-spacing: .5px; }
-.live { font-size: 9px; color: #c4f2df; border: 1px solid #b5ead84c; padding: 5px 8px; border-radius: 50px; }
-.dash-symbol {
-  height: 125px; margin: 22px 0; border-radius: 19px;
-  display: grid; place-items: center; position: relative; overflow: hidden;
-  background: radial-gradient(circle at 50% 30%, #b5ead82e, transparent 65%), #ffffff08;
-}
-.dash-symbol svg { width: 88px; height: 88px; filter: drop-shadow(0 0 20px #9de3d552); }
-.dash-line { height: 1px; background: #ffffff22; margin: 17px 0; }
-.dash-footer { display: flex; justify-content: space-between; gap: 12px; font-size: 10px; color: #c4dbd5; }
-.dash-footer strong { color: #b5ead8; font-weight: 800; }
-
-/* TRUST STRIP */
-.trust-strip { background: #e7eee7; border-bottom: 1px solid var(--line); }
-.trust-inner { display: grid; grid-template-columns: repeat(3,1fr); }
-.trust-item { padding: 25px 20px; display: flex; align-items: center; gap: 14px; border-right: 1px solid var(--line); }
-.trust-item:first-child { padding-left: 0; }
-.trust-item:last-child { border-right: 0; }
-.trust-icon { font-size: 24px; }
-.trust-item strong { display: block; font-size: 12px; }
-.trust-item small { display: block; font-size: 11px; color: var(--muted); }
-
-/* SERVICES */
-.services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
-.service-card {
-  background: var(--white); border: 1px solid var(--line);
-  border-radius: var(--radius); padding: 27px; min-height: 200px;
-  transition: transform .3s, box-shadow .3s;
-}
-.service-card:hover { transform: translateY(-5px); box-shadow: 0 18px 42px #102f380c; }
-.service-icon {
-  width: 48px; height: 48px; border-radius: 16px;
-  display: grid; place-items: center; background: #e0f1e9;
-  font-size: 23px; margin-bottom: 24px;
-}
-.service-card h3 { font-size: 19px; letter-spacing: -.5px; margin-bottom: 9px; }
-.service-card p { font-size: 13px; color: var(--muted); margin-bottom: 0; }
-
-/* TEST CATALOGUE */
-.tests-section { background: #e7eee7; }
-.tests-top { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 30px; }
-.tests-top .section-head { margin-bottom: 0; }
-.search-box {
-  display: flex; align-items: center; gap: 10px; background: white;
-  border: 1px solid var(--line); padding: 0 15px; border-radius: 14px;
-  min-width: 260px; height: 48px;
-}
-.search-box span { color: var(--muted); }
-.search-box input { border: 0; outline: none; background: transparent; width: 100%; min-width: 0; color: var(--ink); font-size: 13px; }
-.test-categories { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 25px; }
-.chip {
-  background: #ffffffad; color: #4e696c; border: 1px solid var(--line);
-  padding: 9px 15px; border-radius: 50px; font-size: 11px; font-weight: 800; cursor: pointer;
-}
-.chip.active, .chip:hover { background: var(--deep); color: white; border-color: var(--deep); }
-.tests-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
-.test-card {
-  background: var(--white); border: 1px solid #102f380d;
-  border-radius: 18px; padding: 19px; display: flex; flex-direction: column; min-height: 166px;
-}
-.test-card .test-icon { font-size: 20px; margin-bottom: 15px; }
-.test-card h3 { font-size: 14px; letter-spacing: -.3px; margin-bottom: 7px; }
-.test-card p { font-size: 11px; color: var(--muted); margin-bottom: 18px; flex: 1; }
-.test-card a { font-size: 11px; color: var(--teal); font-weight: 900; }
-.no-results { padding: 25px; color: var(--muted); }
-
-/* HOME COLLECTION FEATURE */
-.collection { background: var(--deep); color: white; overflow: hidden; position: relative; }
-.collection:after {
-  content: ""; position: absolute; width: 500px; height: 500px; border-radius: 50%;
-  border: 1px solid #b5ead81e; right: -140px; top: -230px;
-  box-shadow: 0 0 0 45px #b5ead808, 0 0 0 90px #b5ead805;
-}
-.collection-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; position: relative; z-index: 1; }
-.collection .eyebrow { color: #b5ead8; }
-.collection h2 { max-width: 520px; }
-.collection p { color: #c5d9d6; max-width: 500px; }
-.collection-list { list-style: none; padding: 0; margin: 27px 0 30px; display: grid; gap: 13px; }
-.collection-list li { display: flex; gap: 12px; align-items: flex-start; color: #e2eeea; font-size: 13px; }
-.collection-list li span { color: #b5ead8; font-weight: 900; }
-.collection-art {
-  min-height: 360px; display: grid; place-items: center; position: relative;
-}
-.collection-circle {
-  width: 270px; height: 270px; border-radius: 50%;
-  background: radial-gradient(circle at 30% 20%, #d2f2df, #75bcb0 44%, #2b7978 75%);
-  box-shadow: 0 0 100px #5bb9a32c; display: grid; place-items: center;
-  position: relative; animation: float 7s ease-in-out infinite;
-}
-.collection-circle:before {
-  content: ""; position: absolute; inset: 20px; border: 1px solid #ffffff60; border-radius: 50%;
-}
-.collection-circle svg { width: 100px; height: 100px; color: #103b43; }
-
-/* PACKAGES */
-.packages-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
-.package-card {
-  background: var(--white); border: 1px solid var(--line);
-  border-radius: var(--radius); padding: 28px;
-}
-.package-card.featured { background: #e1f0e8; border-color: #b8d8ca; }
-.package-label { font-size: 10px; letter-spacing: 1.5px; font-weight: 900; text-transform: uppercase; color: var(--teal); }
-.package-card h3 { font-size: 24px; margin: 13px 0; }
-.package-card p { font-size: 12px; color: var(--muted); }
-.package-card ul { list-style: none; padding: 0; margin: 23px 0; }
-.package-card li { font-size: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); }
-.package-card li:before { content: "✓"; color: var(--teal); font-weight: 900; margin-right: 10px; }
-
-/* BOOKING */
-.booking { background: #e7eee7; }
-.booking-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 45px; align-items: start; }
-.booking-info { background: var(--deep); color: white; padding: 32px; border-radius: var(--radius); }
-.booking-info p { color: #c5d9d6; font-size: 13px; }
-.contact-line { padding: 16px 0; border-top: 1px solid #ffffff22; font-size: 12px; }
-.contact-line strong { display: block; margin-bottom: 4px; color: #b5ead8; }
-.booking-panel { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; }
-.booking-panel h3 { font-size: 25px; margin-bottom: 8px; }
-.booking-panel > p { font-size: 12px; color: var(--muted); }
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 22px 0; }
-.field { display: flex; flex-direction: column; gap: 7px; }
-.field.full { grid-column: 1 / -1; }
-.field label { font-size: 11px; font-weight: 850; }
-.field input, .field select {
-  width: 100%; border: 1px solid var(--line); background: #fbfcf8;
-  border-radius: 12px; padding: 13px; outline: none; color: var(--ink); font-size: 13px;
-}
-.field input:focus, .field select:focus { border-color: var(--teal); }
-.form-note { font-size: 10px; color: var(--muted); margin-top: 12px; }
-
-/* FOOTER */
-footer { background: #061f28; color: white; padding: 52px 0 25px; }
-.footer-top { display: flex; justify-content: space-between; gap: 30px; align-items: start; padding-bottom: 35px; }
-.footer-brand { max-width: 330px; }
-.footer-brand p { color: #a9c3c0; font-size: 12px; margin-top: 16px; }
-.footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
-.footer-links a { color: #d1e1dc; font-size: 12px; }
-.footer-bottom { border-top: 1px solid #ffffff20; padding-top: 22px; color: #91aeaa; font-size: 10px; display: flex; justify-content: space-between; gap: 15px; }
-.mobile-book { display: none; }
-
-/* MOTION */
-@keyframes drift { from { transform: rotate(0deg) translateY(0); } to { transform: rotate(14deg) translateY(25px); } }
-@keyframes wave { from { transform: rotate(-4deg) translateX(-2%); } to { transform: rotate(3deg) translateX(2%); } }
-@keyframes rise { 0% { transform: translateY(0) scale(.7); opacity: 0; } 15% { opacity: .8; } 85% { opacity: .5; } 100% { transform: translateY(-850px) scale(1.3); opacity: 0; } }
-@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
-
-@media (max-width: 920px) {
-  .nav-links { gap: 13px; }
-  .nav-links a { font-size: 11px; }
-  .nav-actions .btn-light { display: none; }
-  .hero-inner { gap: 20px; grid-template-columns: 1fr .8fr; }
-  .hero h1 { font-size: clamp(46px, 7vw, 65px); }
-  .visual { min-height: 340px; }
-  .orbit { width: 280px; height: 280px; }
-  .dash-card { max-width: 300px; }
-  .tests-grid { grid-template-columns: repeat(3,1fr); }
-  .collection-grid { gap: 25px; }
-}
-@media (max-width: 700px) {
-  .wrap { width: min(100% - 30px, 540px); }
-  .section { padding: 68px 0; }
-  .nav { min-height: 70px; }
-  .brand-name { font-size: 13px; }
-  .brand-tag { font-size: 9px; }
-  .logo { width: 42px; height: 42px; }
-  .menu-toggle { display: block; }
-  .nav-links {
-    display: none; position: absolute; left: 15px; right: 15px; top: 76px;
-    padding: 18px; background: #fbfcf8; border: 1px solid var(--line);
-    border-radius: 18px; box-shadow: 0 15px 40px #092b3617;
-    flex-direction: column; align-items: stretch; gap: 0;
-  }
-  .nav-links.open { display: flex; }
-  .nav-links a { padding: 12px 8px; border-bottom: 1px solid var(--line); font-size: 13px; }
-  .nav-links a:last-child { border-bottom: 0; }
-  .nav-actions .btn { display: none; }
-  .hero { min-height: auto; }
-  .hero-inner { grid-template-columns: 1fr; padding: 70px 0 100px; gap: 22px; }
-  .hero h1 { font-size: clamp(48px, 13vw, 67px); letter-spacing: -3px; }
-  .hero-copy { font-size: 14px; }
-  .visual { min-height: 330px; margin-top: 4px; }
-  .orbit { width: 280px; height: 280px; }
-  .dash-card { width: min(100%, 320px); }
-  .trust-inner { grid-template-columns: 1fr; padding: 8px 0; }
-  .trust-item, .trust-item:first-child { padding: 15px 0; border-right: 0; border-bottom: 1px solid var(--line); }
-  .trust-item:last-child { border-bottom: 0; }
-  .services-grid { grid-template-columns: 1fr 1fr; gap: 11px; }
-  .service-card { padding: 19px; min-height: 190px; }
-  .service-icon { width: 42px; height: 42px; margin-bottom: 17px; }
-  .service-card h3 { font-size: 16px; }
-  .service-card p { font-size: 12px; }
-  .tests-top { display: block; }
-  .search-box { min-width: 0; margin-top: 20px; }
-  .tests-grid { grid-template-columns: 1fr 1fr; gap: 9px; }
-  .test-card { padding: 15px; min-height: 170px; }
-  .test-card h3 { font-size: 13px; }
-  .collection-grid { grid-template-columns: 1fr; gap: 15px; }
-  .collection-art { min-height: 270px; }
-  .collection-circle { width: 220px; height: 220px; }
-  .packages-grid { grid-template-columns: 1fr; }
-  .package-card { padding: 24px; }
-  .booking-grid { grid-template-columns: 1fr; gap: 18px; }
-  .booking-info, .booking-panel { padding: 24px; }
-  .form-grid { grid-template-columns: 1fr; }
-  .field.full { grid-column: auto; }
-  .footer-top { flex-direction: column; }
-  .footer-bottom { flex-direction: column; }
-  .mobile-book {
-    display: flex; position: fixed; bottom: 12px; left: 12px; right: 12px;
-    z-index: 60; padding: 9px; border-radius: 18px;
-    background: #f5f5eff0; border: 1px solid #102f3820;
-    box-shadow: 0 8px 35px #092b3626; backdrop-filter: blur(15px);
-  }
-  .mobile-book .btn { width: 100%; }
-  footer { padding-bottom: 95px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    scroll-behavior: auto !important;
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: .01ms !important;
-  }
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}
 }
 </style>
 </head>
-
 <body>
+<div class="ambient" aria-hidden="true"></div>
+<div class="particles" aria-hidden="true">
+  <span class="particle"></span><span class="particle"></span><span class="particle"></span>
+  <span class="particle"></span><span class="particle"></span><span class="particle"></span>
+</div>
 
 <header>
-  <div class="wrap nav">
+  <div class="container nav">
     <a class="brand" href="#home" aria-label="Vcare Diagnostic Lab home">
-      <div class="logo">
-        <img src="./vcare-logo-transparent.png" alt="Vcare Diagnostic Lab logo"
-             onerror="this.style.display='none';this.parentElement.textContent='V';this.parentElement.style.color='#168b88';this.parentElement.style.fontWeight='900';this.parentElement.style.fontSize='24px'">
-      </div>
-      <div>
-        <div class="brand-name">Vcare Diagnostic Lab</div>
-        <span class="brand-tag">TRUSTED · ACCURATE · CARING</span>
-      </div>
+      <img src="./vcare-logo-transparent.png" alt="Vcare Diagnostic Lab logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <span class="brand-fallback" aria-hidden="true">V</span>
+      <span><span class="brand-name">Vcare Diagnostic Lab</span><span class="brand-tag">TRUSTED · ACCURATE · CARING</span></span>
     </a>
-
-    <nav class="nav-links" id="navLinks" aria-label="Main navigation">
-      <a href="#services">Services</a>
-      <a href="#tests">Tests</a>
-      <a href="#packages">Packages</a>
-      <a href="#home-collection">Home Collection</a>
-      <a href="#contact">Contact</a>
+    <nav class="navlinks" id="navlinks" aria-label="Main navigation">
+      <a href="#services">Services</a><a href="#tests">Tests</a><a href="#packages">Packages</a>
+      <a href="#home-collection">Home Collection</a><a href="#contact">Contact</a>
     </nav>
-
     <div class="nav-actions">
-      <a class="btn btn-light" href="tel:+918588931258">Call Us ↗</a>
-      <a class="btn btn-dark" href="#contact">Book a Test <span>↗</span></a>
-      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle menu">☰</button>
+      <a class="btn btn-outline" href="tel:+918588931258">Call Us</a>
+      <a class="btn btn-primary" href="#contact">Book a Test ↗</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
     </div>
   </div>
 </header>
 
-<main>
-<section class="hero" id="home">
-  <div class="flow"></div><div class="flow two"></div>
-  <div class="bubble b1"></div><div class="bubble b2"></div>
-  <div class="bubble b3"></div><div class="bubble b4"></div><div class="bubble b5"></div>
-
-  <div class="wrap hero-inner">
-    <div>
-      <span class="eyebrow">Diagnostics, with a human touch</span>
-      <h1>Your health.<br>Our <em>priority.</em></h1>
-      <p class="hero-copy">
-        Thoughtful diagnostic care, a wide range of laboratory investigations
-        and convenient home sample collection — designed around your comfort
-        and confidence.
-      </p>
-      <div class="hero-buttons">
-        <a class="btn btn-dark" href="#contact">Book Your Test <span>↗</span></a>
-        <a class="btn btn-light" href="https://wa.me/918588931258?text=Hi%20Vcare%20Diagnostic%20Lab%2C%20I%20want%20to%20enquire%20about%20a%20test." target="_blank" rel="noopener">Chat on WhatsApp ↗</a>
-      </div>
-      <div class="hero-note">
-        <span>Patient-friendly service</span>
-        <span>Home collection enquiry</span>
-        <span>Digital report options</span>
-      </div>
-    </div>
-
-    <div class="visual" aria-label="Decorative laboratory dashboard illustration">
-      <div class="orbit"><div class="orbit-dot"></div></div>
-      <div class="dash-card">
-        <div class="dash-top">
-          <span class="dash-title">YOUR HEALTH, IN FOCUS</span>
-          <span class="live">VCARE CARE</span>
+<main id="home">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow"><span class="live-dot"></span> RELIABLE DIAGNOSTIC TESTING · NEW DELHI</span>
+        <h1>Your health.<br><span class="gradient-text">Our priority.</span></h1>
+        <p class="hero-copy">Quality laboratory testing, health checkups and convenient home sample collection — designed around your comfort, privacy and confidence.</p>
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="#contact">Book a Test <span>→</span></a>
+          <a class="btn btn-outline" href="https://wa.me/918588931258?text=Hi%20Vcare%20Diagnostic%20Lab%2C%20I%20want%20to%20book%20a%20test." target="_blank" rel="noopener">WhatsApp Us ↗</a>
         </div>
-        <div class="dash-symbol">
-          <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
-            <path d="M34 15h32M40 15v26L23 70a12 12 0 0 0 10 18h34a12 12 0 0 0 10-18L60 41V15" stroke="#B8E7D9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M31 66h38M38 52h24" stroke="#B8E7D9" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="44" cy="72" r="3" fill="#B8E7D9"/>
-            <circle cx="56" cy="59" r="2.5" fill="#B8E7D9"/>
-            <circle cx="57" cy="78" r="2" fill="#B8E7D9"/>
-          </svg>
-        </div>
-        <div class="dash-title">Care that moves with you.</div>
-        <div class="dash-line"></div>
-        <div class="dash-footer">
-          <span>Laboratory services</span>
-          <strong>VCARE ✳</strong>
+        <div class="trust-row">
+          <span><i class="check">✓</i> Patient-friendly service</span>
+          <span><i class="check">✓</i> Home collection options</span>
+          <span><i class="check">✓</i> Digital reports</span>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<div class="trust-strip">
-  <div class="wrap trust-inner">
-    <div class="trust-item">
-      <span class="trust-icon">⌁</span>
-      <div><strong>Patient-first approach</strong><small>Care with comfort and respect</small></div>
-    </div>
-    <div class="trust-item">
-      <span class="trust-icon">⌂</span>
-      <div><strong>Home collection enquiries</strong><small>Ask about availability in your area</small></div>
-    </div>
-    <div class="trust-item">
-      <span class="trust-icon">↗</span>
-      <div><strong>Convenient communication</strong><small>Call or message our team</small></div>
-    </div>
-  </div>
-</div>
-
-<section class="section" id="services">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">What we do</span>
-      <h2>Good care begins<br>with the right testing.</h2>
-      <p>Explore our laboratory services and contact our team for test availability, preparation instructions and booking support.</p>
-    </div>
-    <div class="services-grid">
-      <article class="service-card">
-        <div class="service-icon">🩸</div>
-        <h3>Blood Investigations</h3>
-        <p>Routine blood tests and selected specialised investigations.</p>
-      </article>
-      <article class="service-card">
-        <div class="service-icon">⌕</div>
-        <h3>Pathology Testing</h3>
-        <p>Explore haematology, biochemistry and other laboratory categories.</p>
-      </article>
-      <article class="service-card">
-        <div class="service-icon">⌂</div>
-        <h3>Home Collection</h3>
-        <p>Enquire about sample collection at home and local availability.</p>
-      </article>
-      <article class="service-card">
-        <div class="service-icon">✳</div>
-        <h3>Health Checkups</h3>
-        <p>Ask about available screening profiles and wellness packages.</p>
-      </article>
-      <article class="service-card">
-        <div class="service-icon">▤</div>
-        <h3>Report Support</h3>
-        <p>Contact our team for information about report delivery and access.</p>
-      </article>
-      <article class="service-card">
-        <div class="service-icon">♡</div>
-        <h3>Patient Assistance</h3>
-        <p>Friendly assistance with enquiries, bookings and test preparation.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="section tests-section" id="tests">
-  <div class="wrap">
-    <div class="tests-top">
-      <div class="section-head">
-        <span class="eyebrow">Explore investigations</span>
-        <h2>Find your test.</h2>
-        <p>Search by test name or browse by category. Please confirm availability with our team.</p>
-      </div>
-      <label class="search-box">
-        <span>⌕</span>
-        <input id="testSearch" type="search" placeholder="Search tests..." aria-label="Search laboratory tests">
-      </label>
-    </div>
-
-    <div class="test-categories" id="testCategories">
-      <button class="chip active" data-category="All" type="button">All Tests</button>
-      <button class="chip" data-category="Haematology" type="button">Haematology</button>
-      <button class="chip" data-category="Diabetes" type="button">Diabetes</button>
-      <button class="chip" data-category="Thyroid" type="button">Thyroid</button>
-      <button class="chip" data-category="Biochemistry" type="button">Biochemistry</button>
-      <button class="chip" data-category="Vitamins" type="button">Vitamins</button>
-      <button class="chip" data-category="Other" type="button">Other Tests</button>
-    </div>
-
-    <div class="tests-grid" id="testsGrid">
-      <article class="test-card" data-category="Haematology" data-name="Complete Blood Count CBC">
-        <span class="test-icon">🩸</span><h3>Complete Blood Count (CBC)</h3><p>Blood cell count and related parameters.</p>
-        <a href="#contact" data-book="Complete Blood Count (CBC)">Enquire about test ↗</a>
-      </article>
-      <article class="test-card" data-category="Haematology" data-name="ESR Erythrocyte Sedimentation Rate">
-        <span class="test-icon">◉</span><h3>ESR</h3><p>A laboratory marker used in assessing inflammation.</p>
-        <a href="#contact" data-book="ESR">Enquire about test ↗</a>
-      </article>
-      <article class="test-card" data-category="Haematology" data-name="Peripheral Blood Smear PBS">
-        <span class="test-icon">⌕</span><h3>Peripheral Blood Smear</h3><p>Microscopic examination of blood cells.</p>
-        <a href="#contact" data-book="Peripheral Blood Smear">Enquire about test ↗</a>
-      </article>
-      <article class="test-card" data-category="Haematology" data-name="Reticulocyte Count">
-        <span class="test-icon">◌</span><h3>Reticulocyte Count</h3><p>Assessment of immature red blood cells.</p>
-        <a href="#contact" data-book="Reticulocyte Count">Enquire about test ↗</a>
-      </article>
-      <article class="test-card" data-category="Diabetes" data-name="Fasting Blood Glucose FBS">
-        <span class="test-icon">◈</span><h3>Fasting Blood Glucose</h3><p>Blood glucose measurement after fasting.</p>
-        <a href="#contact" data-book="Fasting Blood Glucose">Enquire about test ↗</a>
-      </article>
-      <article class="test-card" data-category="Diabetes" data-name="Post Prandial Blood Glucose PPBS">
-        <span class="test-icon">◈</span><h3>Post-meal Glucose (PPBS)</h3><p>Blood glucose measurement after a meal.</p>
-        <a href="#contact" data-book="Post-meal Glucose (PPBS)">Enquire about test ↗</a>
-      </article>
-      <article class="test-card" data-category="Diabetes" data-name="HbA1c Glycated Haemoglobin">
-        <span class="test-icon">▥</span><h3>HbA1c</h3><p>Reflects average blood glucose over recent months.</p>
-        <a href="#contact" data-book="HbA1c">Enquire about test ↗</a>
-      </article>
-      <article class="test-card" data-category="Thyroid" data-name="Thyroid Profile T3 T4 TSH">
-        <span class="test-icon">◉</span><h3>Thyroid Profile</h3><p>Commonly includes T3, T4 and TSH; confirm the panel.</p>
-        <a href="#contact" data-book="Thyroid Profile">Enquire about test ↗</a>
-      </article>
-      <article class="test-card" data-category="Biochemistry" data-name="Liver Function Test LFT">
-        <span class="test-icon">◍</span><h3>Liver Function Test</h3><p>Selected enzymes, proteins and bilirubin measurements.</p>
-        <a href="#contact" data-book="Liver Function Test">Enquire about test ↗</a>
-      </article>
-      <article class="test-card" data-category="Biochemistry" data-name="Kidney Function Test KFT RFT">
-        <span class="test-icon">◍</span><h3>Kidney Function Test</h3><p>Selected kidney-related blood parameters.</p>
-        <a href="#contact" data-book="Kidney Function Test">Enquire about test ↗</a>
-      </article>
-      <article class="test-card" data-category="Biochemistry" data-name="Lipid Profile Cholesterol">
-        <span class="test-icon">◉</span><h3>Lipid Profile</h3><p>Cholesterol and triglyceride measurements.</p>
-        <a href="#contact" data-book="Lipid Profile">Enquire about test ↗</a>
-      </article>
-      <article class="test-card" data-category="Biochemistry" data-name="Uric Acid">
-        <span class="test-icon">◌</span><h3>Uric Acid</h3><p>Measurement of uric acid in the blood.</p>
-        <a href="#contact" data-book="Uric Acid">Enquire about test ↗</a>
-      </article>
-      <article class="test-card" data-category="Vitamins" data-name="Vitamin D 25 OH">
-        <span class="test-icon">☼</span><h3>Vitamin D</h3><p>Commonly measured as 25-hydroxy vitamin D.</p>
-        <a href="#contact" data-book="Vitamin D">Enquire about test ↗</a>
-      </article>
-      <article class="test-card" data-category="Vitamins" data-name="Vitamin B12">
-        <span class="test-icon">✳</span><h3>Vitamin B12</h3><p>Measurement of vitamin B12 level.</p>
-        <a href="#contact" data-book="Vitamin B12">Enquire about test ↗</a>
-      </article>
-      <article class="test-card" data-category="Other" data-name="Iron Studies Ferritin">
-        <span class="test-icon">◈</span><h3>Iron Studies / Ferritin</h3><p>Ask which iron-related tests are included.</p>
-        <a href="#contact" data-book="Iron Studies / Ferritin">Enquire about test ↗</a>
-      </article>
-      <article class="test-card" data-category="Other" data-name="CRP C Reactive Protein">
-        <span class="test-icon">◉</span><h3>CRP</h3><p>A blood marker used to assess inflammation.</p>
-        <a href="#contact" data-book="CRP">Enquire about test ↗</a>
-      </article>
-      <article class="test-card" data-category="Other" data-name="Urine Routine Microscopy">
-        <span class="test-icon">⌕</span><h3>Urine Routine & Microscopy</h3><p>Routine urine examination.</p>
-        <a href="#contact" data-book="Urine Routine & Microscopy">Enquire about test ↗</a>
-      </article>
-      <article class="test-card" data-category="Other" data-name="Urine Culture Sensitivity">
-        <span class="test-icon">◌</span><h3>Urine Culture & Sensitivity</h3><p>Culture-based testing when indicated.</p>
-        <a href="#contact" data-book="Urine Culture & Sensitivity">Enquire about test ↗</a>
-      </article>
-      <article class="test-card" data-category="Other" data-name="Dengue NS1 IgM IgG">
-        <span class="test-icon">✳</span><h3>Dengue Tests</h3><p>Available assays may include NS1 and antibodies.</p>
-        <a href="#contact" data-book="Dengue Tests">Enquire about test ↗</a>
-      </article>
-      <article class="test-card" data-category="Other" data-name="Widal Test">
-        <span class="test-icon">◉</span><h3>Widal Test</h3><p>Availability and clinical relevance should be confirmed.</p>
-        <a href="#contact" data-book="Widal Test">Enquire about test ↗</a>
-      </article>
-    </div>
-    <p class="small" id="testCount" aria-live="polite" style="margin-top:20px">Showing all listed tests.</p>
-    <p class="small" style="margin-top:12px">This is a starter catalogue, not a complete list of tests performed by Vcare. Availability, specimen requirements and preparation instructions must be confirmed with the lab.</p>
-  </div>
-</section>
-
-<section class="section collection" id="home-collection">
-  <div class="wrap collection-grid">
-    <div>
-      <span class="eyebrow">Care comes closer</span>
-      <h2>Let healthcare fit into your day.</h2>
-      <p>Prefer to stay at home? Contact Vcare Diagnostic Lab to ask about home sample collection, service areas, appointment slots and preparation instructions.</p>
-      <ul class="collection-list">
-        <li><span>✳</span> Ask about collection availability in your area.</li>
-        <li><span>✳</span> Confirm fasting and other preparation requirements.</li>
-        <li><span>✳</span> Enquire about report delivery options.</li>
-      </ul>
-      <a class="btn btn-mint" href="https://wa.me/918588931258?text=Hi%20Vcare%2C%20I%20want%20to%20enquire%20about%20home%20sample%20collection." target="_blank" rel="noopener">Enquire for Home Collection ↗</a>
-    </div>
-    <div class="collection-art" aria-hidden="true">
-      <div class="collection-circle">
-        <svg viewBox="0 0 100 100" fill="none">
-          <path d="M20 51l30-25 30 25M29 46v32h42V46M43 78V57h14v21" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M50 37c-4 6-9 10-9 15a9 9 0 0 0 18 0c0-5-5-9-9-15z" stroke="currentColor" stroke-width="2.5"/>
-        </svg>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="packages">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Health, thoughtfully</span>
-      <h2>Wellness starts with a conversation.</h2>
-      <p>Explore these example package categories and contact us for the exact investigations, prices and preparation details available at Vcare.</p>
-    </div>
-    <div class="packages-grid">
-      <article class="package-card">
-        <span class="package-label">Everyday wellbeing</span>
-        <h3>Basic Wellness</h3>
-        <p>A starting point for discussing routine health screening.</p>
-        <ul><li>Ask about basic blood investigations</li><li>Ask about glucose screening</li><li>Confirm the exact test list</li></ul>
-        <a class="btn btn-light" href="#contact" data-package="Basic Wellness">Enquire about package ↗</a>
-      </article>
-      <article class="package-card featured">
-        <span class="package-label">A broader overview</span>
-        <h3>Complete Wellness</h3>
-        <p>Discuss a broader selection of commonly requested profiles.</p>
-        <ul><li>Ask about liver and kidney profiles</li><li>Ask about thyroid and lipid tests</li><li>Confirm included investigations</li></ul>
-        <a class="btn btn-dark" href="#contact" data-package="Complete Wellness">Enquire about package ↗</a>
-      </article>
-      <article class="package-card">
-        <span class="package-label">Care at every age</span>
-        <h3>Senior Care</h3>
-        <p>Discuss appropriate screening based on individual needs.</p>
-        <ul><li>Ask about age-appropriate tests</li><li>Enquire about home collection</li><li>Confirm the recommended panel with a clinician</li></ul>
-        <a class="btn btn-light" href="#contact" data-package="Senior Care">Enquire about package ↗</a>
-      </article>
-    </div>
-    <p class="small" style="margin-top:20px">Package names are illustrative. They do not indicate confirmed inclusions, medical recommendations or prices.</p>
-  </div>
-</section>
-
-<section class="section booking" id="contact">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">We are here to help</span>
-      <h2>Let's arrange your enquiry.</h2>
-      <p>Share your details and open WhatsApp with your enquiry pre-filled. Our team can confirm availability and next steps.</p>
-    </div>
-
-    <div class="booking-grid">
-      <aside class="booking-info">
-        <span class="eyebrow">Connect with Vcare</span>
-        <h3 style="font-size:30px;margin:18px 0">Personal care.<br>Clear communication.</h3>
-        <p>For bookings, test availability, sample collection and preparation instructions, contact our team directly.</p>
-        <div class="contact-line"><strong>Call / WhatsApp</strong>+91 85889 31258</div>
-        <div class="contact-line"><strong>Location</strong>New Delhi, India</div>
-        <div class="contact-line"><strong>Service</strong>Laboratory testing and test enquiries</div>
-        <a class="btn btn-mint" style="margin-top:20px" href="https://wa.me/918588931258?text=Hi%20Vcare%20Diagnostic%20Lab%2C%20I%20have%20a%20query." target="_blank" rel="noopener">Message Us Directly ↗</a>
-      </aside>
-
-      <div class="booking-panel">
-        <h3>Book / Enquire</h3>
-        <p>Complete the details below. Your message will open in WhatsApp for you to review and send.</p>
-        <form id="bookingForm">
-          <div class="form-grid">
-            <div class="field">
-              <label for="patientName">Your name *</label>
-              <input id="patientName" name="patientName" autocomplete="name" required placeholder="Enter your name">
-            </div>
-            <div class="field">
-              <label for="patientPhone">Contact number *</label>
-              <input id="patientPhone" name="patientPhone" type="tel" autocomplete="tel" required pattern="[0-9+ ()-]{8,18}" placeholder="Your phone number">
-            </div>
-            <div class="field full">
-              <label for="testChoice">Test / package *</label>
-              <input id="testChoice" name="testChoice" required placeholder="e.g. CBC, Thyroid Profile">
-            </div>
-            <div class="field">
-              <label for="collection">Collection preference</label>
-              <select id="collection" name="collection">
-                <option>Visit the lab / discuss options</option>
-                <option>Home sample collection enquiry</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="preferredDate">Preferred date</label>
-              <input id="preferredDate" name="preferredDate" type="date">
-            </div>
-            <div class="field full">
-              <button class="btn btn-dark" type="submit" style="width:100%">Continue on WhatsApp ↗</button>
-            </div>
+      <div class="hero-visual" aria-label="Healthcare themed animated illustration">
+        <div class="orbit"></div>
+        <div class="float-chip chip-one"><span>✚</span> Care with respect</div>
+        <div class="float-chip chip-two"><span>⌁</span> Clear information</div>
+        <div class="dashboard">
+          <div class="dash-top"><span class="dash-title">Vcare Health Dashboard</span><span class="status">Trusted Care</span></div>
+          <div class="dash-sub">A thoughtful approach to diagnostics</div>
+          <div class="health-icon"><div class="med-cross">+</div></div>
+          <div class="dash-metrics">
+            <div class="metric"><b>Patient-first</b><span>Respect & comfort</span></div>
+            <div class="metric"><b>Quality-focused</b><span>Careful testing</span></div>
           </div>
-          <p class="form-note">This form does not submit information to a database. It prepares a WhatsApp message, which you must review and send yourself. Avoid entering sensitive medical details here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-white" id="services">
+    <div class="container">
+      <div class="section-head"><span class="kicker">What we do</span><h2>Diagnostics made more convenient</h2><p>Patient-focused support at every step, from booking to receiving your report.</p></div>
+      <div class="cards">
+        <article class="service-card"><div class="service-icon">🩸</div><h3>Blood Tests</h3><p>Routine and specialized blood investigations, as available through our laboratory services.</p></article>
+        <article class="service-card"><div class="service-icon">🔬</div><h3>Pathology Testing</h3><p>Laboratory investigations supported by careful sample handling and quality-focused processes.</p></article>
+        <article class="service-card"><div class="service-icon">🏠</div><h3>Home Sample Collection</h3><p>Ask our team about convenient sample collection at home and service availability in your area.</p></article>
+        <article class="service-card"><div class="service-icon">🩺</div><h3>Health Checkups</h3><p>Explore wellness testing options that can be discussed with your healthcare professional.</p></article>
+        <article class="service-card"><div class="service-icon">📄</div><h3>Digital Reports</h3><p>Ask about report delivery options and how to access your laboratory results.</p></article>
+        <article class="service-card"><div class="service-icon">🤝</div><h3>Patient Support</h3><p>Our team can help with test enquiries, preparation guidance and booking assistance.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="tests">
+    <div class="container">
+      <div class="section-head"><span class="kicker">Explore investigations</span><h2>Find your laboratory test</h2><p>Browse the categories below. Test availability, preparation and sample requirements may vary.</p></div>
+      <div class="test-area">
+        <aside class="test-sidebar">
+          <h3>Test categories</h3>
+          <input class="test-search" id="testSearch" type="search" placeholder="Search a test..." aria-label="Search tests">
+          <div class="category-list" id="categoryList">
+            <button class="category-btn active" data-category="Haematology">Haematology <small>06</small></button>
+            <button class="category-btn" data-category="Diabetes">Diabetes <small>06</small></button>
+            <button class="category-btn" data-category="Thyroid">Thyroid <small>07</small></button>
+            <button class="category-btn" data-category="Biochemistry">Biochemistry <small>06</small></button>
+            <button class="category-btn" data-category="Vitamins">Vitamins <small>06</small></button>
+            <button class="category-btn" data-category="Other Tests">Other Tests <small>04</small></button>
+          </div>
+        </aside>
+        <div class="test-main">
+          <div class="test-main-top"><h3 id="activeCategoryTitle">Haematology</h3><span class="test-count" id="testCount">6 tests</span></div>
+          <div class="test-grid" id="testGrid" aria-live="polite"></div>
+          <p class="disclaimer">Test descriptions are for general information only and are not a diagnosis. Reference ranges and interpretation depend on the laboratory method, age, symptoms and clinical context. Please discuss results with a qualified healthcare professional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-white" id="packages">
+    <div class="container">
+      <div class="section-head"><span class="kicker">Wellness options</span><h2>Choose a health checkup</h2><p>Illustrative package ideas. Please confirm actual test inclusions, pricing and availability with Vcare before booking.</p></div>
+      <div class="cards">
+        <article class="service-card package-card"><span class="package-label">Everyday wellness</span><h3>Basic Wellness</h3><p>A starting point for discussing routine health screening with your clinician.</p><ul><li>Selected routine investigations</li><li>Diabetes screening options</li><li>Basic wellness markers</li></ul><a class="btn btn-outline" href="#contact">Ask about package</a></article>
+        <article class="service-card package-card"><span class="package-label">Broader screening</span><h3>Complete Wellness</h3><p>A broader screening option to tailor according to age, history and clinical advice.</p><ul><li>Selected liver and kidney markers</li><li>Lipid and thyroid options</li><li>Other tests as advised</li></ul><a class="btn btn-primary" href="#contact">Ask about package</a></article>
+        <article class="service-card package-card"><span class="package-label">Comfort-focused</span><h3>Senior Care</h3><p>Ask our team about convenient booking and home collection options for older adults.</p><ul><li>Test selection based on advice</li><li>Home collection enquiry</li><li>Report access information</li></ul><a class="btn btn-outline" href="#contact">Ask about package</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="home-collection">
+    <div class="container home-grid">
+      <div class="home-panel">
+        <span class="eyebrow" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.18);color:#d9ffff">CARE THAT COMES CLOSER</span>
+        <h3>Sample collection, with comfort in mind.</h3>
+        <p>For older adults, busy families or anyone who prefers the convenience of home, ask us about collection options in your location.</p>
+        <div class="home-points"><span>✓ Ask about availability in your area</span><span>✓ Confirm test preparation in advance</span><span>✓ Enquire about digital report delivery</span></div>
+      </div>
+      <div class="home-copy">
+        <span class="kicker">Home collection</span><h2>Less travel. More peace of mind.</h2>
+        <p>Contact Vcare Diagnostic Lab to confirm whether home sample collection is available for your address and selected tests. Some investigations may require special timing, preparation or collection conditions.</p>
+        <a class="btn btn-primary" href="https://wa.me/918588931258?text=Hi%20Vcare%2C%20please%20share%20home%20sample%20collection%20availability." target="_blank" rel="noopener">Check Home Collection ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-white" id="contact">
+    <div class="container">
+      <div class="section-head"><span class="kicker">We’re here to help</span><h2>Book or enquire about a test</h2><p>Share your enquiry below. The button will open WhatsApp with your details for you to review and send.</p></div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Let’s take the next step.</h3><p>Need help finding a test, checking collection availability or asking about preparation? Contact our team.</p>
+          <a class="contact-line" href="tel:+918588931258"><span class="service-icon">☎</span><span>+91 85889 31258<br><small style="font-weight:500;color:#b8d9e1">Call Vcare Diagnostic Lab</small></span></a>
+          <a class="contact-line" href="https://wa.me/918588931258" target="_blank" rel="noopener"><span class="service-icon">◉</span><span>WhatsApp Enquiry<br><small style="font-weight:500;color:#b8d9e1">Send us a message</small></span></a>
+          <div class="contact-line"><span class="service-icon">⌖</span><span>New Delhi<br><small style="font-weight:500;color:#b8d9e1">Confirm service area when booking</small></span></div>
+        </div>
+        <form class="booking-form" id="bookingForm">
+          <h3>Test enquiry form</h3><p>Fill in the details to prepare your WhatsApp message.</p>
+          <div class="form-grid">
+            <div class="field"><label for="fullName">Your name *</label><input id="fullName" name="fullName" required placeholder="Enter your name"></div>
+            <div class="field"><label for="phone">Mobile number *</label><input id="phone" name="phone" required inputmode="tel" placeholder="Your contact number"></div>
+            <div class="field"><label for="testName">Test / category</label><input id="testName" name="testName" placeholder="e.g. CBC, HbA1c"></div>
+            <div class="field"><label for="collection">Collection preference</label><select id="collection" name="collection"><option>Not sure yet</option><option>Visit the lab</option><option>Home sample collection</option></select></div>
+            <div class="field full"><label for="message">Additional details</label><textarea id="message" name="message" placeholder="Any question about the test or booking?"></textarea></div>
+          </div>
+          <p class="form-note">Privacy note: do not enter sensitive medical details here. This form does not store information on the website; it prepares a message in WhatsApp for you to review and send.</p>
+          <button class="btn btn-primary" type="submit">Continue to WhatsApp ↗</button>
         </form>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 </main>
 
 <footer>
-  <div class="wrap">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a class="brand" href="#home">
-          <div class="logo">
-            <img src="./vcare-logo-transparent.png" alt="Vcare logo"
-                 onerror="this.style.display='none';this.parentElement.textContent='V';this.parentElement.style.color='#168b88';this.parentElement.style.fontWeight='900';this.parentElement.style.fontSize='24px'">
-          </div>
-          <div>
-            <div class="brand-name">Vcare Diagnostic Lab</div>
-            <span class="brand-tag" style="color:#a9c3c0">TRUSTED · ACCURATE · CARING</span>
-          </div>
-        </a>
-        <p>Thoughtful diagnostic services, helpful communication and convenient booking enquiries.</p>
-      </div>
-      <nav class="footer-links" aria-label="Footer navigation">
-        <a href="#services">Services</a>
-        <a href="#tests">Tests</a>
-        <a href="#packages">Packages</a>
-        <a href="#home-collection">Home Collection</a>
-        <a href="#contact">Contact</a>
-        <a href="tel:+918588931258">Call Vcare</a>
-      </nav>
+  <div class="container">
+    <div class="footer-row">
+      <div class="footer-brand"><img src="./vcare-logo-transparent.png" alt="" onerror="this.style.display='none'"><span><b>Vcare Diagnostic Lab</b><small>Trusted · Accurate · Caring</small></span></div>
+      <div class="footer-links"><a href="#services">Services</a><a href="#tests">Tests</a><a href="#packages">Packages</a><a href="#contact">Contact</a><a href="tel:+918588931258">Call us</a></div>
     </div>
-    <div class="footer-bottom">
-      <span>© <span id="year"></span> Vcare Diagnostic Lab. All rights reserved.</span>
-      <span>Care that flows. Confidence that matters.</span>
-    </div>
+    <div class="footer-bottom"><span>© <span id="year"></span> Vcare Diagnostic Lab. All rights reserved.</span><span>Test selection and interpretation should be guided by a qualified healthcare professional.</span></div>
   </div>
 </footer>
 
-<div class="mobile-book">
-  <a class="btn btn-dark" href="#contact">Book / Enquire on WhatsApp ↗</a>
-</div>
+<div class="mobile-cta"><a class="btn btn-outline" href="tel:+918588931258">☎ Call Us</a><a class="btn btn-primary" href="#contact">Book a Test →</a></div>
 
 <script>
-(function () {
-  const menuToggle = document.getElementById('menuToggle');
-  const navLinks = document.getElementById('navLinks');
+const testCatalog = {
+  "Haematology": [
+    {name:"Complete Blood Count (CBC)",desc:"Measures red cells, white cells, haemoglobin and platelets; used as part of a clinical assessment."},
+    {name:"Peripheral Blood Smear",desc:"Microscopic review of blood cells to assess their appearance and morphology."},
+    {name:"Reticulocyte Count",desc:"Measures young red blood cells and may help assess red-cell production."},
+    {name:"ESR (Erythrocyte Sedimentation Rate)",desc:"A non-specific marker that may be used when assessing inflammation."},
+    {name:"Prothrombin Time (PT / INR)",desc:"Assesses part of the blood-clotting process; monitoring needs depend on clinical context."},
+    {name:"Activated Partial Thromboplastin Time (APTT)",desc:"Assesses another part of the clotting pathway and may be used in selected investigations."}
+  ],
+  "Diabetes": [
+    {name:"HbA1c (Glycated Haemoglobin)",desc:"Reflects average blood glucose over roughly the previous 2–3 months."},
+    {name:"Fasting Plasma Glucose (FPG / FBS)",desc:"Measures blood glucose after the prescribed fasting period."},
+    {name:"Oral Glucose Tolerance Test (OGTT)",desc:"Measures the body's response to a glucose drink at specified time points."},
+    {name:"Random Plasma Glucose (RBG / Random Blood Sugar)",desc:"Measures blood glucose without requiring a fasting schedule."},
+    {name:"Postprandial Blood Sugar (PPBS)",desc:"Measures blood glucose at a specified time after a meal, as instructed."},
+    {name:"Urine Glucose / Urine Ketones",desc:"Urine screening for glucose and ketones; results need clinical context."}
+  ],
+  "Thyroid": [
+    {name:"TSH (Thyroid-Stimulating Hormone)",desc:"A commonly used test to assess thyroid regulation."},
+    {name:"Free T4 (Free Thyroxine)",desc:"Measures the unbound fraction of thyroxine in the blood."},
+    {name:"Total T4 (Total Thyroxine)",desc:"Measures bound and unbound thyroxine; interpretation may be affected by binding proteins."},
+    {name:"Free T3 (Free Triiodothyronine)",desc:"Measures the unbound fraction of T3 when clinically indicated."},
+    {name:"Total T3 (Total Triiodothyronine)",desc:"Measures total T3; selected with reference to symptoms and other thyroid results."},
+    {name:"Thyroid Antibody Panel",desc:"May include antibodies such as anti-TPO and anti-thyroglobulin, depending on the panel."},
+    {name:"Thyroglobulin (Tg)",desc:"A protein measurement used in selected thyroid evaluations and follow-up."},
+    {name:"Calcitonin",desc:"A specialised marker used in specific clinical situations."}
+  ],
+  "Biochemistry": [
+    {name:"Liver Function Tests (LFTs)",desc:"A group of tests that may include enzymes, bilirubin, albumin and related markers."},
+    {name:"Kidney Function & Electrolytes (RFTs / U&E)",desc:"May include creatinine, urea and electrolytes such as sodium and potassium."},
+    {name:"Glucose & Diabetes Biochemistry",desc:"Biochemical glucose testing; the appropriate test depends on the clinical question."},
+    {name:"Lipid Profile",desc:"Measures blood lipids such as total cholesterol, HDL, LDL and triglycerides."},
+    {name:"Cardiac & Pancreatic Enzymes",desc:"Selected markers may include troponin, CK-MB, amylase or lipase, as clinically indicated."},
+    {name:"Inflammation & Other Markers",desc:"May include CRP, uric acid and other tests depending on the requested investigation."}
+  ],
+  "Vitamins": [
+    {name:"Vitamin D (25-Hydroxy)",desc:"Commonly used measurement of vitamin D status."},
+    {name:"Vitamin A (Retinol)",desc:"Measures vitamin A; usually requested for specific clinical reasons."},
+    {name:"Vitamin E (Alpha-Tocopherol)",desc:"Measures vitamin E and may be used in selected assessments."},
+    {name:"Vitamin K / K1",desc:"Specialised vitamin testing; availability and method can vary by laboratory."},
+    {name:"Vitamin B12 (Cyanocobalamin)",desc:"Assesses vitamin B12 status; results are interpreted with symptoms and other findings."},
+    {name:"Vitamin B-Complex Panel",desc:"Water-soluble B-vitamin testing; exact vitamins included depend on the panel offered."}
+  ],
+  "Other Tests": [
+    {name:"Urine Routine & Microscopy",desc:"A general urine assessment that may include physical, chemical and microscopic examination."},
+    {name:"Stool Routine Examination",desc:"A stool investigation selected according to symptoms and clinical advice."},
+    {name:"CRP (C-Reactive Protein)",desc:"A marker that can rise with inflammation; it does not identify a cause by itself."},
+    {name:"Additional Specialised Tests",desc:"Ask Vcare about availability of other routine or specialised investigations."}
+  ]
+};
 
-  menuToggle.addEventListener('click', function () {
-    const isOpen = navLinks.classList.toggle('open');
-    menuToggle.setAttribute('aria-expanded', String(isOpen));
-    menuToggle.textContent = isOpen ? '✕' : '☰';
-  });
+const testGrid = document.getElementById("testGrid");
+const testSearch = document.getElementById("testSearch");
+const categoryTitle = document.getElementById("activeCategoryTitle");
+const testCount = document.getElementById("testCount");
+const categoryButtons = [...document.querySelectorAll(".category-btn")];
+let activeCategory = "Haematology";
 
-  navLinks.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', function () {
-      navLinks.classList.remove('open');
-      menuToggle.setAttribute('aria-expanded', 'false');
-      menuToggle.textContent = '☰';
+function renderTests(){
+  const query = testSearch.value.trim().toLowerCase();
+  const categories = activeCategory === "All" ? Object.keys(testCatalog) : [activeCategory];
+  const results = [];
+  categories.forEach(category => {
+    (testCatalog[category] || []).forEach(test => {
+      if(!query || (test.name + " " + test.desc + " " + category).toLowerCase().includes(query)){
+        results.push({...test,category});
+      }
     });
   });
-
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  const search = document.getElementById('testSearch');
-  const cards = Array.from(document.querySelectorAll('.test-card'));
-  const chips = Array.from(document.querySelectorAll('.chip'));
-  const count = document.getElementById('testCount');
-  let activeCategory = 'All';
-
-  function filterTests() {
-    const query = search.value.trim().toLowerCase();
-    let visible = 0;
-
-    cards.forEach(function (card) {
-      const matchesCategory = activeCategory === 'All' ||
-        card.dataset.category === activeCategory;
-      const matchesSearch = card.dataset.name.toLowerCase().includes(query) ||
-        card.textContent.toLowerCase().includes(query);
-      const show = matchesCategory && matchesSearch;
-      card.hidden = !show;
-      if (show) visible++;
-    });
-
-    count.textContent = visible
-      ? 'Showing ' + visible + ' of ' + cards.length + ' listed tests.'
-      : 'No matching tests found. Try another search or contact Vcare.';
+  categoryTitle.textContent = activeCategory === "All" ? "All Tests" : activeCategory;
+  testCount.textContent = `${results.length} ${results.length === 1 ? "test" : "tests"}`;
+  testGrid.innerHTML = "";
+  if(!results.length){
+    testGrid.innerHTML = '<div class="no-results">No matching tests found. Try another keyword or category.</div>';
+    return;
   }
-
-  search.addEventListener('input', filterTests);
-
-  chips.forEach(function (chip) {
-    chip.addEventListener('click', function () {
-      activeCategory = chip.dataset.category;
-      chips.forEach(function (item) {
-        item.classList.toggle('active', item === chip);
-      });
-      filterTests();
-    });
+  results.forEach(test => {
+    const card = document.createElement("article");
+    card.className = "test-card";
+    const tag = document.createElement("span"); tag.className = "test-tag"; tag.textContent = test.category;
+    const title = document.createElement("h4"); title.textContent = test.name;
+    const desc = document.createElement("p"); desc.textContent = test.desc;
+    card.append(tag,title,desc); testGrid.appendChild(card);
   });
-
-  document.querySelectorAll('[data-book]').forEach(function (link) {
-    link.addEventListener('click', function () {
-      document.getElementById('testChoice').value = link.dataset.book;
-    });
+}
+categoryButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    activeCategory = button.dataset.category;
+    categoryButtons.forEach(item => item.classList.toggle("active", item === button));
+    renderTests();
   });
+});
+testSearch.addEventListener("input", renderTests);
 
-  document.querySelectorAll('[data-package]').forEach(function (link) {
-    link.addEventListener('click', function () {
-      document.getElementById('testChoice').value =
-        link.dataset.package + ' package enquiry';
-    });
-  });
-
-  document.getElementById('bookingForm').addEventListener('submit', function (event) {
-    event.preventDefault();
-
-    const name = document.getElementById('patientName').value.trim();
-    const phone = document.getElementById('patientPhone').value.trim();
-    const test = document.getElementById('testChoice').value.trim();
-    const collection = document.getElementById('collection').value;
-    const date = document.getElementById('preferredDate').value;
-
-    if (!name || !phone || !test) {
-      alert('Please complete your name, contact number and test/package.');
-      return;
-    }
-
-    const message = [
-      'Hi Vcare Diagnostic Lab, I would like to enquire/book a test.',
-      '',
-      'Name: ' + name,
-      'Contact number: ' + phone,
-      'Test/package: ' + test,
-      'Preference: ' + collection,
-      'Preferred date: ' + (date || 'To be discussed'),
-      '',
-      'Please confirm availability and any preparation instructions.'
-    ].join('\n');
-
-    const whatsappURL = 'https://wa.me/918588931258?text=' +
-      encodeURIComponent(message);
-
-    window.open(whatsappURL, '_blank', 'noopener,noreferrer');
-  });
-})();
+document.getElementById("menuToggle").addEventListener("click", () => {
+  const links = document.getElementById("navlinks");
+  const open = links.classList.toggle("open");
+  document.getElementById("menuToggle").setAttribute("aria-expanded", String(open));
+  document.getElementById("menuToggle").textContent = open ? "✕" : "☰";
+});
+document.querySelectorAll("#navlinks a").forEach(link => link.addEventListener("click", () => {
+  document.getElementById("navlinks").classList.remove("open");
+  document.getElementById("menuToggle").setAttribute("aria-expanded","false");
+  document.getElementById("menuToggle").textContent = "☰";
+}));
+document.getElementById("bookingForm").addEventListener("submit", event => {
+  event.preventDefault();
+  const data = new FormData(event.currentTarget);
+  const message = [
+    "Hi Vcare Diagnostic Lab, I would like to enquire/book a test.",
+    `Name: ${data.get("fullName")}`,
+    `Mobile: ${data.get("phone")}`,
+    `Test / category: ${data.get("testName") || "Not specified"}`,
+    `Collection preference: ${data.get("collection")}`,
+    `Additional details: ${data.get("message") || "None"}`
+  ].join("\n");
+  window.open("https://wa.me/918588931258?text=" + encodeURIComponent(message), "_blank", "noopener");
+});
+document.getElementById("year").textContent = new Date().getFullYear();
+renderTests();
 </script>
-
 </body>
 </html>
